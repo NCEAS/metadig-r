@@ -1,0 +1,13 @@
+Package: metadig
+Type: Package
+Title: Helper package for metadig
+Version: 0.1.0
+Description: A set of utility methods for the metadig project.
+Authors@R: c(
+  person("Bryce", "Mecum", email = "mecum@nceas.ucsb.edu", role = c("aut", "cre")))
+License: Apache License 2.0
+Encoding: UTF-8
+LazyData: true
+Suggests:
+    testthat
+RoxygenNote: 5.0.1
