@@ -1,6 +1,8 @@
 context("save_output")
 
 test_that("a text output can be saved", {
+  if ("mdq_result" %in% ls(envir = .GlobalEnv)) rm(mdq_result, envir = .GlobalEnv)
+
   save_output("test")
 
   expect_is(mdq_result, "list")
@@ -9,5 +11,7 @@ test_that("a text output can be saved", {
 })
 
 test_that("an output type that isn't supported cannot be saved", {
+  if ("mdq_result" %in% ls(envir = .GlobalEnv)) rm(mdq_result, envir = .GlobalEnv)
+
   expect_error(save_output("test", "test"))
 })
