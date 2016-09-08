@@ -43,7 +43,7 @@ check_presence <- function(x) {
       local_result[["output"]] <- list(list(value = message))
     }
   } else {
-    local_result <<- list(status = status,
+    local_result <- list(status = status,
                           output = list(list(value = message)))
   }
 
