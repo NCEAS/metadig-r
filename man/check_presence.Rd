@@ -2,8 +2,7 @@
 % Please edit documentation in R/checks.R
 \name{check_presence}
 \alias{check_presence}
-\title{checks.R
-Check for the presence of an element. Assumes a single element.}
+\title{checks.R}
 \usage{
 check_presence(x)
 }
@@ -14,6 +13,10 @@ check_presence(x)
 This function is invoked for its side-effect.
 }
 \description{
+Utility functions to write checks with.
+Check for the presence of an element. Assumes a single element.
+}
+\details{
 Note: Modifies global environment!
 }
 

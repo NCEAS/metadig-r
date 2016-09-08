@@ -1,4 +1,6 @@
 #' checks.R
+#'
+#' Utility functions to write checks with.
 
 
 #' Check for the presence of an element. Assumes a single element.
