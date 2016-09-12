@@ -73,6 +73,11 @@ failure <- function(message=NULL) {
 save_output <- function(x, type="text") {
   name <- paste(substitute(x), collapse = "")
 
+  # Handle NULL specifically
+  if (is.null(x)) {
+    x <- "NULL"
+  }
+
   if (length(x) == 0) {
     stop(paste0("The object '", name, "' was length zero, when length one is required."))
   }

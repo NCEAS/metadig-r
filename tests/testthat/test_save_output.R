@@ -15,3 +15,13 @@ test_that("an output type that isn't supported cannot be saved", {
 
   expect_error(save_output("test", "test"))
 })
+
+test_that("an output with the text 'NULL' is saved if a NULL value is saved", {
+  if ("mdq_result" %in% ls(envir = .GlobalEnv)) rm(mdq_result, envir = .GlobalEnv)
+
+  save_output(NULL)
+
+  expect_is(mdq_result, "list")
+  expect_length(mdq_result[["output"]], 1)
+  expect_equal(mdq_result[["output"]][[1]][["value"]], "NULL")
+})
