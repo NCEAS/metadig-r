@@ -1,11 +1,5 @@
 context("check_presence")
 
-test_that("throws an error if checking a non-list", {
-  if ("mdq_result" %in% ls(envir = .GlobalEnv)) rm(mdq_result, envir = .GlobalEnv)
-
-  expect_error(check_presence(""))
-})
-
 test_that("status is set to FAILURE if any expectation is FAILURE", {
   if ("mdq_result" %in% ls(envir = .GlobalEnv)) rm(mdq_result, envir = .GlobalEnv)
 

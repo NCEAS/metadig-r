@@ -3,7 +3,9 @@
 #' Utility functions to write checks with.
 
 
-#' Check for the presence of an element. Assumes a single element.
+#' Check for the presence of an element. Specifically, this function returns
+#' a SUCCESS status if one or more elements were present and a FAILURE status
+#' if no elements were present.
 #'
 #' Note: Modifies global environment!
 #'
@@ -13,17 +15,13 @@
 #' @export
 check_presence <- function(x) {
   name <- paste(substitute(x), collapse = "")
-  if (!class(x) == "list") stop(paste0("The passed in object '", name, "' is not a list and it must be."))
 
- if (length(x) == 0) {
+  if (length(x) == 0) {
     status <- "FAILURE"
-    message <- paste0("Object '", name, "' was of length zero when it was expected to be of length one.")
-  } else if (length(x) > 1) {
-    status <- "FAILURE"
-    message <- paste0("Object '", name, "' was of length ", length(x), " when it was expected to be of length one.")
+    message <- paste0("Object '", name, "' was of length zero when it was expected to be of length one or more.")
   } else {
     status <- "SUCCESS"
-    message <- paste0("Object '", name, "' was present and was of length one.")
+    message <- paste0("Object '", name, "' was present and was of length ", length(x))
   }
 
   if (any(grepl("mdq_result", ls(envir = .GlobalEnv)))) {
@@ -46,7 +44,7 @@ check_presence <- function(x) {
     }
   } else {
     local_result <- list(status = status,
-                          output = list(list(value = message)))
+                         output = list(list(value = message)))
   }
 
   assign("mdq_result", local_result, envir = .GlobalEnv)
