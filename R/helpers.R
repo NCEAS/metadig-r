@@ -82,10 +82,6 @@ save_output <- function(x, type="text") {
     stop(paste0("The object '", name, "' was length zero, when length one is required."))
   }
 
-  if (length(x) > 1) {
-    stop(paste0("The object '", name, "' was length ", length(x), ", when length one is required."))
-  }
-
   allowed_types <- c("text", "png")
 
   if (!(type %in% allowed_types)) {
@@ -93,7 +89,7 @@ save_output <- function(x, type="text") {
   }
 
   # Prepare output
-  new_output <- list(value = as.character(x), type = type)
+  new_output <- list(value = paste0(vapply(x, as.character, ""), collapse = "\n"), type = type)
 
   if (any(grepl("mdq_result", ls(envir = .GlobalEnv)))) {
     local_result <- get("mdq_result", envir = .GlobalEnv)
