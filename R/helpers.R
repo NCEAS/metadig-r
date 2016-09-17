@@ -23,15 +23,20 @@ set_status <- function(status) {
 
   if (any(grepl("mdq_result", ls(envir = .GlobalEnv)))) {
     local_result <- get("mdq_result", envir = .GlobalEnv)
-    if (!class(local_result) == "list") stop("Name 'mdq_result' copied from global environment was not a list and must be.")
 
-    # Only set the status if we aren't trying to go from FAILURE back to SUCCESS
-    if (status == "SUCCESS" && local_result[["status"]] != "FAILURE") {
+    if (!class(local_result) == "list")
+      stop("Name 'mdq_result' copied from global environment was not a list and must be.")
+
+    if (!("status" %in% names(local_result))) {
       local_result[["status"]] <- status
-    } else if (status == "FAILURE") {
-      local_result[["status"]] <- status
+    } else {
+      # Only set the status if we aren't trying to go from FAILURE back to SUCCESS
+      if (status == "SUCCESS" && local_result[["status"]] != "FAILURE") {
+        local_result[["status"]] <- status
+      } else if (status == "FAILURE") {
+        local_result[["status"]] <- status
+      }
     }
-
   } else {
     local_result <- list(status = status)
   }
@@ -48,7 +53,7 @@ set_status <- function(status) {
 #' @export
 success <- function(message=NULL) {
   set_status("SUCCESS")
-  if (!is.null(message)) save_output(message)
+  if (current_status() != "FAILURE" && !is.null(message)) save_output(message)
 }
 
 
@@ -111,4 +116,13 @@ save_output <- function(x, type="text") {
   }
 
   assign("mdq_result", local_result, envir = .GlobalEnv)
+}
+
+
+current_status <- function() {
+  if (any(grepl("mdq_result", ls(envir = .GlobalEnv))) && "status" %in% names(mdq_result)) {
+      return(mdq_result[["status"]])
+  } else {
+    return(NULL)
+  }
 }
