@@ -17,12 +17,12 @@ mdq_get <- function(url) {
   if (!file.exists(cache_dir)) dir.create(cache_dir)
   stopifnot(file.exists(cache_dir))
 
-  key = digest(url, algo = "sha256", ascii = TRUE, serialize = FALSE)
+  key = digest::digest(url, algo = "sha256", ascii = TRUE, serialize = FALSE)
   file_path = file.path(cache_dir, key)
 
   if (!file.exists(file_path)) {
-    request <- GET(url)
-    writeLines(content(request, as = "text"), con = file_path)
+    request <- httr::GET(url)
+    writeLines(httr::content(request, as = "text"), con = file_path)
   }
 
   stopifnot(file.exists(file_path))
