@@ -18,7 +18,7 @@ mdq_get <- function(url) {
   if (!file.exists(cache_dir)) dir.create(cache_dir)
   stopifnot(file.exists(cache_dir))
 
-  key = digest(url, algo = "md5", ascii = TRUE, serialize = FALSE)
+  key = digest(url, algo = "sha256", ascii = TRUE, serialize = FALSE)
   file_path = file.path(cache_dir, key)
 
   if (!file.exists(file_path)) {
