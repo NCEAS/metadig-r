@@ -2,6 +2,7 @@
 
 export(check_presence)
 export(failure)
+export(mdq_get)
 export(save_output)
 export(set_status)
 export(success)

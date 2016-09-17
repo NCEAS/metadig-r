@@ -14,7 +14,9 @@ This function is invoked for its side-effect.
 }
 \description{
 Utility functions to write checks with.
-Check for the presence of an element. Assumes a single element.
+Check for the presence of an element. Specifically, this function returns
+a SUCCESS status if one or more elements were present and a FAILURE status
+if no elements were present.
 }
 \details{
 Note: Modifies global environment!

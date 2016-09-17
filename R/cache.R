@@ -1,3 +1,7 @@
+#' cache.R
+#'
+#' Functions related to downloading and caching objects.
+
 #' Get the file path for an object specified by its URL. If the content at the
 #' given URL has not been cached previously, the bytes are retrieved and cached.
 #'
@@ -5,8 +9,6 @@
 #'
 #' @return (character) The path to the file
 #' @export
-#'
-#' @examples
 mdq_get <- function(url) {
   temp_dir = Sys.getenv("MDQE_CACHE_DIR", tempdir())
   if (temp_dir == "") stop("MDQE_CACHE_DIR was not set.")
