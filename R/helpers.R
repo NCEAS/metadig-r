@@ -5,6 +5,11 @@
 
 #' Set the status in a check.
 #'
+#' Repeated calls to this function within a single check has special behavior:
+#'
+#'   - If the status is ever set to FAILURE, it cannot be set back to SUCCESS
+#'   - If the status is ever set to SUCCESS, it can always be set to FAILURE
+#'
 #' @param status (character) The status message to set.
 #'
 #' @return This function is invoked for its side-effect.
@@ -16,18 +21,17 @@ set_status <- function(status) {
     stop(paste0("The given type, ", status, " was not allowed: ", paste0(allowed_statuses, collapse = ", "), "."))
   }
 
-
   if (any(grepl("mdq_result", ls(envir = .GlobalEnv)))) {
     local_result <- get("mdq_result", envir = .GlobalEnv)
-
     if (!class(local_result) == "list") stop("Name 'mdq_result' copied from global environment was not a list and must be.")
 
-    # Append output to any existing outputs
-    if ("status" %in% names(local_result)) {
-      stop(paste0("Status was already set to '", local_result[["status"]], "' and cannot be overidden."))
-    } else {
+    # Only set the status if we aren't trying to go from FAILURE back to SUCCESS
+    if (status == "SUCCESS" && local_result[["status"]] != "FAILURE") {
+      local_result[["status"]] <- status
+    } else if (status == "FAILURE") {
       local_result[["status"]] <- status
     }
+
   } else {
     local_result <- list(status = status)
   }
@@ -89,7 +93,7 @@ save_output <- function(x, type="text") {
   }
 
   # Prepare output
-  new_output <- list(value = paste0(vapply(x, as.character, ""), collapse = "\n"), type = type)
+  new_output <- list(value = paste0(as.character(x), collapse = "\n"), type = type)
 
   if (any(grepl("mdq_result", ls(envir = .GlobalEnv)))) {
     local_result <- get("mdq_result", envir = .GlobalEnv)
