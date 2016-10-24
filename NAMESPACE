@@ -2,7 +2,10 @@
 
 export(check_presence)
 export(failure)
+export(isDefined)
+export(isTrueVal)
 export(mdq_get)
 export(save_output)
 export(set_status)
 export(success)
+import(xml2)
