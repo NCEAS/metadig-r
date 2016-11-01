@@ -9,7 +9,7 @@
 #'
 #' Note: Modifies global environment!
 #'
-#' @param x (any) Object to check.
+#' @param x (any) Metadata element to check.
 #'
 #' @return This function is invoked for its side-effect.
 #' @export
@@ -18,10 +18,10 @@ check_presence <- function(x) {
 
   if (length(x) == 0) {
     status <- "FAILURE"
-    message <- paste0("Object '", name, "' was of length zero when it was expected to be of length one or more.")
+    message <- paste0("Metadata element '", name, "' was of length zero when it was expected to be of length one or more.")
   } else {
     status <- "SUCCESS"
-    message <- paste0("Object '", name, "' was present and was of length ", length(x))
+    message <- paste0("Metadata element '", name, "' was present and was of length ", length(x))
   }
 
   if (any(grepl("mdq_result", ls(envir = .GlobalEnv)))) {
