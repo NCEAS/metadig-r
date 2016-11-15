@@ -18,16 +18,16 @@ check_presence <- function(x) {
 
   if (length(x) == 0) {
     status <- "FAILURE"
-    message <- paste0("Metadata element '", name, "' was of length zero when it was expected to be of length one or more.")
+    message <- paste0("'", name, "' is not present.")
   } else {
     status <- "SUCCESS"
-    message <- paste0("Metadata element '", name, "' was present and was of length ", length(x))
+    message <- paste0("'", name, "' is present.")
   }
 
   if (any(grepl("mdq_result", ls(envir = .GlobalEnv)))) {
     local_result <- get("mdq_result", envir = .GlobalEnv)
 
-    if (!class(local_result) == "list") stop("Name 'mdq_result' copied from global environment was not a list and must be.")
+    if (!class(local_result) == "list") stop("Name 'mdq_result' copied from global environment is not a list and must be.")
 
     # Toggle status to FAILURE if its currently SUCCESS and status == "FAILURE"
     if ("status" %in% names(mdq_result) &&
@@ -55,7 +55,7 @@ check_presence <- function(x) {
 #' xpath selector. 
 #' @details This check can be used to test values from a selector that
 #' uses a subSelector. The value returned from this type of selector 
-#' is a list that could possibly contain values that are not defined, i.e.
+#' is a list that could possibly contain elements that have no defined value, i.e.
 #' the subSelector will return NA if the xpath it is trying to select is
 #' not present. The `pos` argument can be used to check a specific value
 #' of such a list.

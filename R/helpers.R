@@ -88,7 +88,7 @@ save_output <- function(x, type="text") {
   }
 
   if (length(x) == 0) {
-    stop(paste0("The object '", name, "' was length zero, when length one is required."))
+    stop(paste0("'", name, "' was length zero, when length one is required."))
   }
 
   allowed_types <- c("text", "png")
