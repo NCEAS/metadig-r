@@ -7,7 +7,7 @@
 check_presence(x)
 }
 \arguments{
-\item{x}{(any) Object to check.}
+\item{x}{(any) Metadata element to check.}
 }
 \value{
 This function is invoked for its side-effect.

@@ -23,7 +23,7 @@ xpath selector.
 \details{
 This check can be used to test values from a selector that
 uses a subSelector. The value returned from this type of selector 
-is a list that could possibly contain values that are not defined, i.e.
+is a list that could possibly contain elements that have no defined value, i.e.
 the subSelector will return NA if the xpath it is trying to select is
 not present. The `pos` argument can be used to check a specific value
 of such a list.
