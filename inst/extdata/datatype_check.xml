@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdq:check xmlns:mdq="https://nceas.ucsb.edu/mdqe" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://nceas.ucsb.edu/mdqe ../schemas/schema1.xsd">
+  <id>check.dataset.title.length.1</id>
+  <name>Dataset title length is sufficient</name>
+  <description>Check that the dataset title is greater than 7 words and less than 20.</description>
+  <type>identification</type>
+  <level>REQUIRED</level>
+  <environment>rscript</environment>
+  <code><![CDATA[
+    library(base)
+check <- function() {
+
+    if(!is.logical(titlePresent)) {
+      return(list(status = "FAILURE", output = sprintf("The expected datatype 'logical' was passed to the check as type '%s'", class(titlePresent))))
+    }
+
+    if(!is.character(datasetTitle)) {
+      return(list(status = "FAILURE", output = sprintf("The expected datatype 'character' was passed to the check as type '%s'", class(datasetTitle))))
+    }
+
+    if(!is.numeric(westBoundingCoordinates[[1]])) {
+      return(list(status = "FAILURE", output = sprintf("The expected datatype 'numeric' was passed to the check as type '%s'", class(westBoundingCoordinates[[1]]))))
+    }
+
+    return(list(status = "SUCCESS", output = sprintf("All sub-checks for datatype were successfull!")))
+}
+result <- check()
+mdq_result <- list(status=result$status, output=list(list(value=result$output)))
+  ]]></code>
+  <selector>
+    <name>titlePresent</name>
+    <xpath>boolean(/eml:eml/dataset/title/foo)</xpath>
+    <namespaces>
+      <namespace prefix="eml">eml://ecoinformatics.org/eml-2.1.1</namespace>
+   </namespaces>
+   <namespaceAware>true</namespaceAware>
+  </selector>
+  <selector>
+    <name>datasetTitle</name>
+    <xpath>/eml:eml/dataset/title</xpath>
+    <namespaces>
+      <namespace prefix="eml">eml://ecoinformatics.org/eml-2.1.1</namespace>
+   </namespaces>
+   <namespaceAware>true</namespaceAware>
+  </selector>
+  	<selector>
+		<name>attributeName</name>
+		<xpath>/eml/dataset/dataTable/attributeList/attribute</xpath>
+		<subSelector>
+			<name>attributeNameSubSelector</name>
+			<xpath>./attributeName</xpath>
+		</subSelector>
+	</selector>
+	<selector>
+		<name>attributeNamePresent</name>
+		<xpath>/eml/dataset/dataTable/attributeList/attribute</xpath>
+		<subSelector>
+			<name>attributeNameSubSelector</name>
+			<xpath>boolean(./attributeName)</xpath>
+		</subSelector>
+	</selector>
+	<selector>
+    <name>westBoundingCoordinates</name>
+    <xpath>/eml:eml/dataset/coverage/geographicCoverage/boundingCoordinates/westBoundingCoordinate</xpath>
+    <namespaces>
+      <namespace prefix="eml">eml://ecoinformatics.org/eml-2.1.1</namespace>
+    </namespaces>
+    <namespaceAware>true</namespaceAware>
+  </selector>
+  <dialect>
+    <name>eml</name>
+    <xpath>boolean(/*[local-name() = 'eml'])</xpath>
+  </dialect>
+</mdq:check>

@@ -1,0 +1,3594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1"
+  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packageId="test.00.01"
+  scope="system" system="knb"
+  xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://nis.lternet.edu/schemas/EML/eml-2.1.1/eml.xsd">
+  <access authSystem="knb" order="allowFirst">
+    <allow>
+      <principal>uid=SBC,o=LTER,dc=ecoinformatics,dc=org</principal>
+      <permission>all</permission>
+    </allow>
+    <allow>
+      <principal>public</principal>
+      <permission>read</permission>
+    </allow>
+  </access>
+  <dataset>
+    <alternateIdentifier>alt-test-00.01</alternateIdentifier>
+    <shortName>Monthly seawater chemistry</shortName>
+    <title>Our CTD and chemistry.</title>
+    <creator id="sbclter">
+      <organizationName>Santa Barbara Science</organizationName>
+      <address>
+        <deliveryPoint>Science Institute</deliveryPoint>
+        <deliveryPoint>University of California</deliveryPoint>
+        <city>Santa Barbara</city>
+        <administrativeArea>CA</administrativeArea>
+        <postalCode>93106</postalCode>
+        <country>USA</country>
+      </address>
+      <electronicMailAddress>us@example.com</electronicMailAddress>
+    </creator>
+    <creator id="dsmith">
+      <individualName>
+        <givenName>Dave</givenName>
+        <surName>Smith</surName>
+      </individualName>
+      <address>
+        <deliveryPoint>Science Institute</deliveryPoint>
+        <deliveryPoint>University of California</deliveryPoint>
+        <city>Santa Barbara</city>
+        <administrativeArea>CA</administrativeArea>
+        <postalCode>93106-6150</postalCode>
+        <country>US</country>
+      </address>
+      <phone phonetype="voice">805-123-4567</phone>
+      <phone phonetype="fax">805-890-1234</phone>
+      <electronicMailAddress>washburn@example.com</electronicMailAddress>
+    </creator>
+    <associatedParty id="fsanders">
+      <individualName>
+        <givenName>Fred</givenName>
+        <surName>Sanders</surName>
+      </individualName>
+      <positionName>Data analyst</positionName>
+      <address>
+        <deliveryPoint>Science Institute</deliveryPoint>
+        <city>Santa Barbara</city>
+        <administrativeArea>CA</administrativeArea>
+        <postalCode>93106-1234</postalCode>
+        <country>US</country>
+      </address>
+      <electronicMailAddress>fsanders@example.com</electronicMailAddress>
+      <role>Data analyst</role>
+    </associatedParty>
+    <pubDate>2014-04-29</pubDate>
+    <language>english</language>
+    <abstract>
+      <para>This data package contains data that is used to test the metadata quality check engine
+        that has been developed by the Metadata Improvement and Guidance Project</para>
+      <para>There are 3 tables in this dataset produced by us. This metadata document
+      is intended to be used only for testing the metadata quality engine.
+      </para>
+    </abstract>
+    <keywordSet>
+      <keyword keywordType="theme">LTER</keyword>
+      <keyword keywordType="theme">Santa Barbara Coastal</keyword>
+    </keywordSet>
+    <keywordSet>
+      <keyword keywordType="theme">Ocean_biogeochemistry</keyword>
+      <keyword keywordType="theme">profiles</keyword>
+    </keywordSet>
+    <keywordSet>
+      <keyword keywordType="place">Arroyo Burro</keyword>
+      <keyword keywordType="place">Arroyo Quemado</keyword>
+      <keyword keywordType="place">Bullito</keyword>
+      <keyword keywordType="place">Carpinteria</keyword>
+      <keyword keywordType="place">Mohawk</keyword>
+      <keyword keywordType="place">Naples</keyword>
+      <keywordThesaurus>Santa Barbara Coastal Science Places</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword keywordType="theme">Marine</keyword>
+      <keyword keywordType="theme">Temperature</keyword>
+      <keywordThesaurus>Knowledge Network for Biocomplexity</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword keywordType="theme">Ammonia</keyword>
+      <keyword keywordType="theme">Attenuation/Transmission</keyword>
+      <keyword keywordType="theme">Chlorophyll</keyword>
+      <keyword keywordType="theme">Conductivity</keyword>
+      <keyword keywordType="theme">Density</keyword>
+      <keyword keywordType="theme">Fluorescence</keyword>
+      <keyword keywordType="theme">Nitrate</keyword>
+      <keyword keywordType="theme">Nutrients</keyword>
+      <keyword keywordType="theme">Organic Carbon</keyword>
+      <keyword keywordType="theme">Phosphate</keyword>
+      <keyword keywordType="theme">Pigments</keyword>
+      <keyword keywordType="theme">Pressure</keyword>
+      <keyword keywordType="theme">Salinity</keyword>
+      <keyword keywordType="theme">Silicate</keyword>
+      <keyword keywordType="theme">Stable Isotopes</keyword>
+      <keyword keywordType="theme">Water Temperature</keyword>
+      <keywordThesaurus>GCMD v6.0.0.0.0 Earth Science: Oceans</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword keywordType="theme">carbon</keyword>
+      <keyword keywordType="theme">carbon to nitrogen ratio</keyword>
+      <keyword keywordType="theme">chemistry</keyword>
+      <keyword keywordType="theme">chlorophyll</keyword>
+      <keyword keywordType="theme">CTD</keyword>
+      <keyword keywordType="theme">depth</keyword>
+      <keyword keywordType="theme">marine</keyword>
+      <keyword keywordType="theme">nitrogen</keyword>
+      <keyword keywordType="theme">nutrients</keyword>
+      <keyword keywordType="theme">oceans</keyword>
+      <keyword keywordType="theme">phosophorus</keyword>
+      <keyword keywordType="theme">salinity</keyword>
+      <keyword keywordType="theme">temperature</keyword>
+      <keyword keywordType="theme">water</keyword>
+      <keywordThesaurus>Controlled Vocabulary v1</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword keywordType="theme">inorganic nutrients</keyword>
+      <keywordThesaurus>Controlled Vocabulary v1: Core Research Areas</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword keywordType="theme">Biomass</keyword>
+      <keyword keywordType="theme">Carbon</keyword>
+      <keyword keywordType="theme">Chlorophylls</keyword>
+      <keyword keywordType="theme">Nutrients</keyword>
+      <keywordThesaurus>NBII Biocomplexity</keywordThesaurus>
+    </keywordSet>
+    <intellectualRights>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para>The user of this data agrees to contact the data owner (i.e., the SBC
+              investigator responsible for data) prior to publishing. Where appropriate, users whose
+              projects are integrally dependent on our data are encouraged to consider
+              collaboration and/or co-authorship with the data owner.</para>
+          </listitem>
+          <listitem>
+            <para>The user agrees to cite the authors in all publications that use our data by
+              including the following statement in the Acknowledgments: "Data were provided by the
+              Santa Barbara Science, funded by the US Science Foundation
+              (OCE-0000000)".</para>
+          </listitem>
+          <listitem>
+            <para>The user agrees to send the full citation of any publication using our data
+              to science@example.com</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </intellectualRights>
+    <distribution>
+      <online>
+        <url function="information">http://sbc.lternet.edu/</url>
+      </online>
+    </distribution>
+    <coverage>
+      <geographicCoverage id="AB">
+        <geographicDescription>Arroyo Burro: Arroyo Burro</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-119.74438</westBoundingCoordinate>
+          <eastBoundingCoordinate>-119.74438</eastBoundingCoordinate>
+          <northBoundingCoordinate>34.40017</northBoundingCoordinate>
+          <southBoundingCoordinate>34.40017</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage id="BI">
+        <geographicDescription>Bullito Inshore: Bullito Inshore</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-120.3334</westBoundingCoordinate>
+          <eastBoundingCoordinate>-120.3334</eastBoundingCoordinate>
+          <northBoundingCoordinate>34.4589</northBoundingCoordinate>
+          <southBoundingCoordinate>34.4589</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage id="BO">
+        <geographicDescription>Bullito Offshore: Bullito Offshore</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-120.3336</westBoundingCoordinate>
+          <eastBoundingCoordinate>-120.3336</eastBoundingCoordinate>
+          <northBoundingCoordinate>34.4582</northBoundingCoordinate>
+          <southBoundingCoordinate>34.4582</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage id="BR">
+        <geographicDescription>Bullito Reef: Bullito Reef</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-120.3335</westBoundingCoordinate>
+          <eastBoundingCoordinate>-120.3335</eastBoundingCoordinate>
+          <northBoundingCoordinate>34.4585</northBoundingCoordinate>
+          <southBoundingCoordinate>34.4585</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage id="CI">
+        <geographicDescription>Carpinteria Inshore: Carpinteria Inshore</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-119.53925</westBoundingCoordinate>
+          <eastBoundingCoordinate>-119.53925</eastBoundingCoordinate>
+          <northBoundingCoordinate>34.39388</northBoundingCoordinate>
+          <southBoundingCoordinate>34.39388</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage id="CO">
+        <geographicDescription>Carpinteria Offshore: Carpinteria Offshore</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-119.54187</westBoundingCoordinate>
+          <eastBoundingCoordinate>-119.54187</eastBoundingCoordinate>
+          <northBoundingCoordinate>34.38387</northBoundingCoordinate>
+          <southBoundingCoordinate>34.38387</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage id="CR">
+        <geographicDescription>Carpinteria Reef - near mooring site CAR: Carpinteria Reef - near mooring site CAR</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-119.53987</westBoundingCoordinate>
+          <eastBoundingCoordinate>-119.53987</eastBoundingCoordinate>
+          <northBoundingCoordinate>34.39023</northBoundingCoordinate>
+          <southBoundingCoordinate>34.39023</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage id="MI">
+        <geographicDescription>Mohawk Inshore: Mohawk Inshore</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-119.72917</westBoundingCoordinate>
+          <eastBoundingCoordinate>-119.72917</eastBoundingCoordinate>
+          <northBoundingCoordinate>34.39488</northBoundingCoordinate>
+          <southBoundingCoordinate>34.39488</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage id="MK">
+        <geographicDescription>Mohawk Reef: Mohawk Reef</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-119.73012</westBoundingCoordinate>
+          <eastBoundingCoordinate>-119.73012</eastBoundingCoordinate>
+          <northBoundingCoordinate>34.39338</northBoundingCoordinate>
+          <southBoundingCoordinate>34.39338</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage id="NI">
+        <geographicDescription>Naples Inshore: Naples Inshore</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-119.95053</westBoundingCoordinate>
+          <eastBoundingCoordinate>-119.95053</eastBoundingCoordinate>
+          <northBoundingCoordinate>34.42772</northBoundingCoordinate>
+          <southBoundingCoordinate>34.42772</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage id="NO">
+        <geographicDescription>Naples Offshore: Naples Offshore</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-119.95602</westBoundingCoordinate>
+          <eastBoundingCoordinate>-119.95602</eastBoundingCoordinate>
+          <northBoundingCoordinate>34.41305</northBoundingCoordinate>
+          <southBoundingCoordinate>34.41305</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage id="NR">
+        <geographicDescription>Naples Reef - near mooring site NAP: Naples Reef - near mooring site NAP</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-119.95032</westBoundingCoordinate>
+          <eastBoundingCoordinate>-119.95032</eastBoundingCoordinate>
+          <northBoundingCoordinate>34.42385</northBoundingCoordinate>
+          <southBoundingCoordinate>34.42385</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage id="QI">
+        <geographicDescription>Arroyo Quemado Inshore: Arroyo Quemado Inshore</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-120.11933</westBoundingCoordinate>
+          <eastBoundingCoordinate>-120.11933</eastBoundingCoordinate>
+          <northBoundingCoordinate>34.46843</northBoundingCoordinate>
+          <southBoundingCoordinate>34.46843</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage id="QM">
+        <geographicDescription>Arroyo Quemado Reef1 - - at pre2005-mooring site AQM: Arroyo Quemado Reef1 - - at pre2005-mooring site AQM</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-120.12057</westBoundingCoordinate>
+          <eastBoundingCoordinate>-120.12057</eastBoundingCoordinate>
+          <northBoundingCoordinate>34.46464</northBoundingCoordinate>
+          <southBoundingCoordinate>34.46464</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage id="QO">
+        <geographicDescription>Arroyo Qmemado Offshore: Arroyo Qmemado Offshore</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-120.11937</westBoundingCoordinate>
+          <eastBoundingCoordinate>-120.11937</eastBoundingCoordinate>
+          <northBoundingCoordinate>34.4614</northBoundingCoordinate>
+          <southBoundingCoordinate>34.4614</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <geographicCoverage id="QR">
+        <geographicDescription>Arroyo Quemado Reef - near pre2005 mooring site AQM: Arroyo Quemado Reef - near pre2005 mooring site AQM</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-120.12005</westBoundingCoordinate>
+          <eastBoundingCoordinate>-120.12005</eastBoundingCoordinate>
+          <northBoundingCoordinate>34.46722</northBoundingCoordinate>
+          <southBoundingCoordinate>34.46722</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <temporalCoverage>
+        <rangeOfDates>
+          <beginDate>
+            <calendarDate>2001-01-01</calendarDate>
+          </beginDate>
+          <endDate>
+            <calendarDate>2014-04-10</calendarDate>
+          </endDate>
+        </rangeOfDates>
+      </temporalCoverage>
+    </coverage>
+    <contact>
+      <positionName>Information Manager</positionName>
+      <address>
+        <deliveryPoint>Science Institute</deliveryPoint>
+        <deliveryPoint>University of California</deliveryPoint>
+        <city>Santa Barbara</city>
+        <administrativeArea>California</administrativeArea>
+        <postalCode>93106-1234</postalCode>
+        <country>United States</country>
+      </address>
+      <phone phonetype="voice">805 893 2071</phone>
+      <electronicMailAddress>manager@example.com</electronicMailAddress>
+      <onlineUrl>http://example.com</onlineUrl>
+    </contact>
+    <publisher>
+      <organizationName>Santa Barbara Coastal</organizationName>
+    </publisher>
+    <methods>
+      <methodStep>
+        <description>
+          <section>
+            <title>CTD Instrumentation, collection and analysis</title>
+            <para>CTD data are collected and analyzed according to the following protocols and
+              instruments</para>
+          </section>
+        </description>
+        <protocol>
+          <title>SBC Monthly Water Sampling - CTD and bottles</title>
+          <creator>
+            <individualName>
+              <surName>Washburn</surName>
+            </individualName>
+          </creator>
+          <distribution>
+            <!-- TO DO -->
+            <online>
+              <url>http://sbc.lternet.edu/external/Ocean/Protocols/Monthly_Water_Sampling_CTD_bottles_textonly.pdf</url>
+            </online>
+          </distribution>
+        </protocol>
+        <protocol>
+          <title>Monthly CTD processing -- All data</title>
+          <creator>
+            <individualName>
+              <surName>Washburn</surName>
+            </individualName>
+          </creator>
+          <distribution>
+            <online>
+              <url>http://sbc.lternet.edu/external/Ocean/Protocols/Washburn_2007-10-23_SBCLTER_monthly_CTD_processing.pdf</url>
+            </online>
+          </distribution>
+        </protocol>
+        <instrumentation>SBE19-Plus with rosette sampler (Go-Flo) and bottles drained under pressure  (june 2008 - present)</instrumentation>
+        <instrumentation>SBE19-Plus with rosette sampler (Go-Flo) (Feb 2003 - Jun 2008)</instrumentation>
+        <instrumentation>SBE19 Seacat Profiler, with pump (2001 - 2002)</instrumentation>
+      </methodStep>
+      <methodStep>
+        <description>
+          <section>
+            <title>Nutrients</title>
+            <para>Nutrients were collected according to the following protocols </para>
+          </section>
+        </description>
+        <protocol>
+          <title>Field Water Collection: 2008 - present</title>
+          <creator>
+            <individualName>
+              <surName>Smith</surName>
+            </individualName>
+          </creator>
+          <distribution>
+            <online>
+              <url>http://sbc.lternet.edu/external/Ocean/Protocols/Brzezinski_2008-06-10_field_water_collection.pdf</url>
+            </online>
+          </distribution>
+        </protocol>
+        <protocol>
+          <title>Field Water Collection: 2000 - June 2008</title>
+          <creator>
+            <individualName>
+              <surName>Smith</surName>
+            </individualName>
+          </creator>
+          <distribution>
+            <online>
+              <url>http://sbc.lternet.edu/external/Ocean/Protocols/Field_water_collection.pdf</url>
+            </online>
+          </distribution>
+        </protocol>
+      </methodStep>
+      <methodStep>
+        <description>
+          <section>
+            <title>Particulate C and N and stable isotopes (C and N)</title>
+            <para>Samples for CHN and stable isotope analysis are processed according to the
+              following protocols.</para>
+          </section>
+        </description>
+        <protocol>
+          <title>CHN and Stable Isotope Filtration 2009 - present</title>
+          <creator>
+            <individualName>
+              <surName>Smith</surName>
+            </individualName>
+          </creator>
+          <distribution>
+            <online>
+              <url>http://sbc.lternet.edu/external/Ocean/Protocols/Brzezinski_2009-01-01_C_N_filtration.pdf</url>
+            </online>
+          </distribution>
+        </protocol>
+        <protocol>
+          <title>CHN, Stable Isotope Filtration: 2000 - 2008</title>
+          <creator>
+            <individualName>
+              <surName>Smith</surName>
+            </individualName>
+          </creator>
+          <distribution>
+            <online>
+              <url>http://sbc.lternet.edu/external/Ocean/Protocols/CHN_Isotope_filtration.pdf</url>
+            </online>
+          </distribution>
+        </protocol>
+      </methodStep>
+      <methodStep>
+        <description>
+          <section>
+            <title>Fluorometric chlorophyll </title>
+            <para>Samples for chlorophyll and related pigments (chlorophyll-a, total chlorophyll and
+              phaeopigments) are filtered and analyzed according to the following protocols</para>
+          </section>
+        </description>
+        <protocol>
+          <title>Chlorophyll Filtration: 2009 - present</title>
+          <creator>
+            <individualName>
+              <surName>Smith</surName>
+            </individualName>
+          </creator>
+          <distribution>
+            <online>
+              <url>http://sbc.lternet.edu/external/Ocean/Protocols/Brzezinski_2009-01-01_Chl_filtration_discrete.pdf</url>
+            </online>
+          </distribution>
+        </protocol>
+        <protocol>
+          <title>Chlorophyll Filtration: 2000 - 2008</title>
+          <creator>
+            <individualName>
+              <surName>Smith</surName>
+            </individualName>
+          </creator>
+          <distribution>
+            <online>
+              <url>http://sbc.lternet.edu/external/Ocean/Protocols/Chl_filtration_discrete.pdf</url>
+            </online>
+          </distribution>
+        </protocol>
+        <protocol>
+          <title>Chlorophyll Analysis: 2009 - present</title>
+          <creator>
+            <individualName>
+              <surName>Smith</surName>
+            </individualName>
+          </creator>
+          <distribution>
+            <online>
+              <url>http://sbc.lternet.edu/external/Ocean/Protocols/Brzezinski_2009-01-01_Chl_analysis.pdf</url>
+            </online>
+          </distribution>
+        </protocol>
+        <protocol>
+          <title>Chlorophyll Analysis: 2000 - 2008</title>
+          <creator>
+            <individualName>
+              <surName>Smith</surName>
+            </individualName>
+          </creator>
+          <distribution>
+            <online>
+              <url>http://sbc.lternet.edu/external/Ocean/Protocols/Chl_analysis.pdf</url>
+            </online>
+          </distribution>
+        </protocol>
+      </methodStep>
+      <methodStep>
+        <description>
+          <section>
+            <title>Biogenic and lithogenic silica</title>
+            <para>Samples for biogenic and lithogenic silica were prepared and analyzed according to
+              the following protcols. Note: BSi and LSi were processed only during 2001.</para>
+          </section>
+        </description>
+        <protocol>
+          <title>Particulate Silicon filtration</title>
+          <creator>
+            <individualName>
+              <surName>Smith</surName>
+            </individualName>
+          </creator>
+          <distribution>
+            <online>
+              <url>http://sbc.lternet.edu/external/Ocean/Protocols/Particulate_Si_filtration.pdf</url>
+            </online>
+          </distribution>
+        </protocol>
+        <protocol>
+          <title>Particulate Silicon analysis</title>
+          <creator>
+            <individualName>
+              <surName>Smith</surName>
+            </individualName>
+          </creator>
+          <distribution>
+            <online>
+              <url>http://sbc.lternet.edu/external/Ocean/Protocols/Brzezinski_2001_PSi_protocol_2001.pdf</url>
+            </online>
+          </distribution>
+        </protocol>
+      </methodStep>
+      <methodStep>
+        <description>
+          <section>
+            <title>Visualization Software: Ocean Data View</title>
+            <para> These data were designed to be loaded into the visualization program "Ocean Data
+              View". See links for more information.</para>
+          </section>
+        </description>
+        <protocol>
+          <title>Information about Ocean Data View</title>
+          <creator>
+            <organizationName>ALfred Wegener Institute</organizationName>
+          </creator>
+          <distribution>
+            <online>
+              <url>http://odv.awi.de/</url>
+            </online>
+          </distribution>
+          <distribution>
+            <online>
+              <url>http://sbc.lternet.edu/external/SOFTWARE/OceanDataView/odvGuide.pdf</url>
+            </online>
+          </distribution>
+        </protocol>
+        <protocol>
+          <title>README: Using Ocean Data View with data</title>
+          <creator>
+            <individualName>
+              <surName>O'Brien</surName>
+            </individualName>
+          </creator>
+          <distribution>
+            <online>
+              <url>http://sbc.lternet.edu/external/SOFTWARE/OceanDataView/README.txt</url>
+            </online>
+          </distribution>
+        </protocol>
+        <software>
+          <title>Hi-Resolution Bathymetry for Santa Barbara Channel
+            (ODVinstall_SBCbathy.exe)</title>
+          <creator>
+            <individualName>
+              <surName>Gotschalk</surName>
+            </individualName>
+          </creator>
+          <implementation>
+            <distribution>
+              <online>
+                <url>http://sbc.lternet.edu/external/SOFTWARE/OceanDataView/ODVinstall_SBCbathy.exe</url>
+              </online>
+            </distribution>
+          </implementation>
+          <version>0.1</version>
+        </software>
+      </methodStep>
+    </methods>
+    <project>
+      <title>Santa Barbara Coastal Long Term Ecological Research Project</title>
+      <personnel>
+        <individualName>
+          <salutation>Dr.</salutation>
+          <givenName>Daniel</givenName>
+          <surName>Jones</surName>
+        </individualName>
+        <address>
+          <deliveryPoint>Science Institute</deliveryPoint>
+          <deliveryPoint>University of California</deliveryPoint>
+          <city>Santa Barbara</city>
+          <administrativeArea>California</administrativeArea>
+          <postalCode>93106-6150</postalCode>
+          <country>United States</country>
+        </address>
+        <phone phonetype="voice">805 123 4567</phone>
+        <electronicMailAddress>djones@example.com</electronicMailAddress>
+        <role>Principal Investigator</role>
+      </personnel>
+      <personnel>
+        <individualName>
+          <salutation>Dr.</salutation>
+          <givenName>John</givenName>
+          <surName>Smith</surName>
+        </individualName>
+        <address>
+          <deliveryPoint>Science and Management</deliveryPoint>
+          <deliveryPoint>University of California</deliveryPoint>
+          <city>Santa Barbara</city>
+          <administrativeArea>California</administrativeArea>
+          <postalCode>93106-1234</postalCode>
+          <country>United States</country>
+        </address>
+        <phone phonetype="voice">805 123 4567</phone>
+        <electronicMailAddress>us@example.com</electronicMailAddress>
+        <role>Co-principal Investigator</role>
+      </personnel>
+      <personnel>
+        <individualName>
+          <salutation>Dr.</salutation>
+          <givenName>Jerome</givenName>
+          <surName>Kern</surName>
+        </individualName>
+        <address>
+          <deliveryPoint>Biology</deliveryPoint>
+          <deliveryPoint>University of California</deliveryPoint>
+          <city>Santa Barbara</city>
+          <administrativeArea>California</administrativeArea>
+          <postalCode>93106-1234</postalCode>
+          <country>United States</country>
+        </address>
+        <phone phonetype="voice">805 123 4567</phone>
+        <electronicMailAddress>us@example.com</electronicMailAddress>
+        <role>Co-principal Investigator</role>
+      </personnel>
+      <abstract>
+        <section>
+          <para>The primary research objective of Science is to investigate
+            the importance of land and ocean processes in structuring giant kelp
+              (<emphasis>Macrocystis pyrifera</emphasis>) forest ecosystems. As in many temperate
+            regions, the shallow rocky reefs in the Santa Barbara Channel, California, are dominated
+            by giant kelp forests. Because of their close proximity to shore, kelp forests are
+            influenced by physical and biological processes occurring on land as well as in the open
+            ocean. Research focuses on measuring and modeling the patterns, transport, and
+            processing of material constituents (e.g., nutrients, carbon, sediment, organisms, and
+            pollutants) from terrestrial watersheds and the coastal ocean to these reefs.
+            Specifically, we are examining the effects of these material inputs on the primary
+            production of kelp, and the population dynamics, community structure, and trophic
+            interactions of kelp forest ecosystems.</para>
+        </section>
+      </abstract>
+      <funding>
+        <section>
+          <para>NSF Awards 123456</para>
+        </section>
+      </funding>
+    </project>
+    <dataTable id="ent01">
+      <entityName>Monthly CTD downcasts, registered stations, all years</entityName>
+      <entityDescription>CTD data from monthly downcasts at REGISTERED stations at or near reefs, averaged over 1m bins. File format is acceptable input for Ocean Data View.</entityDescription>
+      <physical>
+        <objectName>LTER_monthly_downcasts_registered_stations_20140429.txt</objectName>
+        <size unit="byte">2825882</size>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>;</fieldDelimiter>
+              <collapseDelimiters>no</collapseDelimiters>
+              <quoteCharacter>"</quoteCharacter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download"
+              >http://sbc.lternet.edu/external/Ocean/Data/Monthly_Water_Sampling/LTER_monthly_downcasts_registered_stations_20140429.txt</url>
+          </online>
+          <access authSystem="knb" order="allowFirst">
+            <allow>
+              <principal>uid=SBC,o=LTER,dc=ecoinformatics,dc=org</principal>
+              <permission>all</permission>
+            </allow>
+            <allow>
+              <principal>public</principal>
+              <permission>read</permission>
+            </allow>
+          </access>
+        </distribution>
+      </physical>
+      <additionalInfo>This data table was designed to be loaded into the Ocean Data View program.
+        The program is avaliable from the publisher at http://odv.awi-bremerhaven.de/ . High
+        resolution bathymetry for the Santa Barbara Channel to be installed with ODV can be provided
+        by request.</additionalInfo>
+      <attributeList>
+        <attribute id="ent1.att1">
+          <attributeName>odv_cruise</attributeName>
+          <attributeLabel>Cruise</attributeLabel>
+          <attributeDefinition>column required by ODV.</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>any text</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att2">
+          <attributeName>odv_station</attributeName>
+          <attributeLabel>station_name</attributeLabel>
+          <attributeDefinition>2-letter code for this station name</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain enforced="yes">
+                  <codeDefinition>
+                    <code>AB</code>
+                    <definition>Arroyo Burro</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>BI</code>
+                    <definition>Bullito Inshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>BO</code>
+                    <definition>Bullito Offshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>BR</code>
+                    <definition>Bullito Reef</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>CI</code>
+                    <definition>Carpinteria Inshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>CO</code>
+                    <definition>Carpinteria Offshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>CR</code>
+                    <definition>Carpinteria Reef - near mooring site CAR</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>MI</code>
+                    <definition>Mohawk Inshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>MK</code>
+                    <definition>Mohawk Reef</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>NI</code>
+                    <definition>Naples Inshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>NO</code>
+                    <definition>Naples Offshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>NR</code>
+                    <definition>Naples Reef - near mooring site NAP</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>QI</code>
+                    <definition>Arroyo Quemado Inshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>QM</code>
+                    <definition>Arroyo Quemado Reef1 - at pre2005-mooring site AQM</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>QO</code>
+                    <definition>Arroyo Quemado Offshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>QR</code>
+                    <definition>Arroyo Quemado Reef - near mooring site AQM</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+          <coverage>
+            <geographicCoverage>
+              <references>AB</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>BI</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>CI</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>CO</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>CR</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>MI</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>MK</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>NI</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>NO</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>NR</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>QI</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>QM</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>QO</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>QR</references>
+            </geographicCoverage>
+          </coverage>
+        </attribute>
+        <attribute id="ent1.att3">
+          <attributeName>odv_type</attributeName>
+          <attributeLabel>Type</attributeLabel>
+          <attributeDefinition>cast type at this station, column required by ODV</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain enforced="yes">
+                  <codeDefinition>
+                    <code>C</code>
+                    <definition>CTD sample</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>B</code>
+                    <definition>Rosette bottle sample</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att4">
+          <attributeName>odv_mm_dd_yy</attributeName>
+          <attributeLabel>mon/day/yr</attributeLabel>
+          <attributeDefinition>format is mm/dd/yyyy, column required by ODV</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>mm/dd/yyyy</formatString>
+              <dateTimePrecision>1</dateTimePrecision>
+            </dateTime>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att5">
+          <attributeName>odv_hh_mm</attributeName>
+          <attributeLabel>hh:mm</attributeLabel>
+          <attributeDefinition>time, UTC, in 24 hr format, column required by ODV</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>hh:mm</formatString>
+              <dateTimePrecision>1</dateTimePrecision>
+            </dateTime>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att6">
+          <attributeName>odv_lon</attributeName>
+          <attributeLabel>Lon (degE)</attributeLabel>
+          <attributeDefinition>Longitude recorded by the first ctd sample at the station, if available. If not available, then nominal longitude for this location. East is positive. Column required by ODV: all samples which are to be considered at same station must have the same value in this column.</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>degree</customUnit>
+              </unit>
+              <precision>1e-05</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">-180</minimum>
+                  <maximum exclusive="false">180</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.00000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att7">
+          <attributeName>odv_lat</attributeName>
+          <attributeLabel>Lat (degN)</attributeLabel>
+          <attributeDefinition>Latitude recorded by the first ctd sample at the station, if available. If not available, then nominal latitude for this location. North is positive. Column required by ODV: all samples which are to be considered at same station must have the same value in this column.</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>degree</customUnit>
+              </unit>
+              <precision>1e-05</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">-90</minimum>
+                  <maximum exclusive="false">90</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.00000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att8">
+          <attributeName>odv_bot_depth</attributeName>
+          <attributeLabel>Bot. Depth [m]</attributeLabel>
+          <attributeDefinition>estimated depth to the bottom at this station, column required by ODV</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>meter</customUnit>
+              </unit>
+              <precision>1</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att9">
+          <attributeName>ctd_depth</attributeName>
+          <attributeLabel>Depth SW [m]</attributeLabel>
+          <attributeDefinition>depth based on seawater density, averaged for points in this bin. Positive is down.</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>meter</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">1000</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att10">
+          <attributeName>decimal_year</attributeName>
+          <attributeLabel>Decimal Year [yr]</attributeLabel>
+          <attributeDefinition>year (yyyy) plus day-time as a fraction of a year, ie, half way thru 2005 = 2005.5</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>nominalYear</customUnit>
+              </unit>
+              <precision>1e-09</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000000000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att11">
+          <attributeName>lon</attributeName>
+          <attributeLabel>lon</attributeLabel>
+          <attributeDefinition>longitude of this measurement, recorded by the CTD, if available. If not recorded, then nominal longitude. East is positive.</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>degree</customUnit>
+              </unit>
+              <precision>1e-05</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">-180</minimum>
+                  <maximum exclusive="false">180</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.00000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att12">
+          <attributeName>lat</attributeName>
+          <attributeLabel>lat</attributeLabel>
+          <attributeDefinition>latitude of this measurement, recorded by the CTD, if available. If not recorded, then nominal latitude. North is positive.</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>degree</customUnit>
+              </unit>
+              <precision>1e-05</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">-90</minimum>
+                  <maximum exclusive="false">90</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.00000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att13">
+          <attributeName>ctd_press</attributeName>
+          <attributeLabel>Pressure [db]</attributeLabel>
+          <attributeDefinition>average seawater pressure, decibar</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>decibar</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">1000</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att14">
+          <attributeName>ctd_pressure_bin</attributeName>
+          <attributeLabel>Pressure bins [db]</attributeLabel>
+          <attributeDefinition>center of the pressure averaging interval</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>decibar</customUnit>
+              </unit>
+              <precision>1</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">1000</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att15">
+          <attributeName>ctd_temp00</attributeName>
+          <attributeLabel>T00</attributeLabel>
+          <attributeDefinition>ITS-90, based on International Temperature Scale of 1990</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <customUnit>celsius</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">100</maximum>
+                </bounds>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att16">
+          <attributeName>ctd_cond00</attributeName>
+          <attributeLabel>C00</attributeLabel>
+          <attributeDefinition>Conductivity, from primary sensor</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>siemensPerMeter</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att17">
+          <attributeName>ctd_v0</attributeName>
+          <attributeLabel>v0</attributeLabel>
+          <attributeDefinition>voltage, 0 channel, raw data for diagnostic purposes</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>volt</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">5</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att18">
+          <attributeName>ctd_v1</attributeName>
+          <attributeLabel>v1</attributeLabel>
+          <attributeDefinition>voltage, 1 channel, raw data for diagnostic purposes</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>volt</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">5</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att19">
+          <attributeName>ctd_v2</attributeName>
+          <attributeLabel>v2</attributeLabel>
+          <attributeDefinition>voltage, 2 channel, raw data for diagnostic purposes</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>volt</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">5</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att20">
+          <attributeName>ctd_v3</attributeName>
+          <attributeLabel>v3</attributeLabel>
+          <attributeDefinition>voltage, 3 channel, raw data for diagnostic purposes</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>volt</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">5</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att21">
+          <attributeName>ctd_descent_rate</attributeName>
+          <attributeLabel>Descent Rate [m/s]</attributeLabel>
+          <attributeDefinition>descent rate of the CTD package</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>meterPerSecond</customUnit>
+              </unit>
+              <precision>0.01</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">100</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.00</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att22">
+          <attributeName>ctd_xmiss_volts</attributeName>
+          <attributeLabel>Trans [%]</attributeLabel>
+          <attributeDefinition>percent of light emitted by a source reaching a sensor across a path of known length (usually 0.25m)</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>percent</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">100</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att23">
+          <attributeName>ctd_xmiss_beamc</attributeName>
+          <attributeLabel>Beam C</attributeLabel>
+          <attributeDefinition>calculated from transmission accordiing to: Beam attenuation coefficient c = - ( 1 / (path length[m]) * ln ( light transmission [decimal] )</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>reciprocalMeter</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att24">
+          <attributeName>ctd_fluor_volts</attributeName>
+          <attributeLabel>Fluor</attributeLabel>
+          <attributeDefinition>Estimated chl contentration from in-situ fluorometer</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>volt</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att25">
+          <attributeName>ctd_upoly_unused</attributeName>
+          <attributeLabel>upoly</attributeLabel>
+          <attributeDefinition>reserved for extra sensor (user-supplied polynomial)</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>micromolePerLiter</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att26">
+          <attributeName>ctd_potential_temp00</attributeName>
+          <attributeLabel>potemp00</attributeLabel>
+          <attributeDefinition>Temperature after the effects of compression have been removed. Defined as the temperature of a parcel of water at the sea surface after it has been raised adiabatically from some depth in the ocean</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <customUnit>celsius</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att27">
+          <attributeName>ctd_sal00</attributeName>
+          <attributeLabel>sal00 [PSU]</attributeLabel>
+          <attributeDefinition>Salinity calculated according to the "Practical Salinity Scale of 1978"</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <customUnit>dimensionless</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att28">
+          <attributeName>ctd_sigmatheta00</attributeName>
+          <attributeLabel>sigma00</attributeLabel>
+          <attributeDefinition>sigma-theta. Density anomaly calculated with in situ salinity, potential temperature and pressure=0. sigmatheta = density[kg/m3] - 1000kg/m3. (International Equation of State, Joint Panel on Oceanographic Tables and Standards, 1981)</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <customUnit>kilogramPerMeterCubed</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att29">
+          <attributeName>ctd_specific_volume_anomaly00</attributeName>
+          <attributeLabel>sva00</attributeLabel>
+          <attributeDefinition>difference between the in situ specific volume (m3/kg) of a parcel and specific volume at the same pressure with S=35 and T=0[celsius].</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <customUnit>cubicMeterPerKilogram</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent1.att30">
+          <attributeName>ctd_scans_per_bin</attributeName>
+          <attributeLabel>scans/bin</attributeLabel>
+          <attributeDefinition>the number of data lines averaged in this bin</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>number</customUnit>
+              </unit>
+              <precision>1</precision>
+              <numericDomain>
+                <numberType>integer</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>13418</numberOfRecords>
+    </dataTable>
+    <dataTable id="ent02">
+      <entityName>Monthly bottle chemistry with CTD, registered stations, all years</entityName>
+      <entityDescription>Nutrients, pigments, particulates, etc from rosette bottles or pump, plus corresponding CTD data (from Seabird "btl file") at REGISTERED stations. No bottle samples collected at non-registered stations.</entityDescription>
+      <physical>
+        <objectName>LTER_monthly_bottledata_registered_stations_20140429.txt</objectName>
+        <size unit="byte">816643</size>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>;</fieldDelimiter>
+              <collapseDelimiters>no</collapseDelimiters>
+              <quoteCharacter>"</quoteCharacter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download"
+              >http://sbc.lternet.edu/external/Ocean/Data/Monthly_Water_Sampling/LTER_monthly_bottledata_registered_stations_20140429.txt</url>
+          </online>
+          <access authSystem="knb" order="allowFirst">
+            <allow>
+              <principal>uid=SBC,o=LTER,dc=ecoinformatics,dc=org</principal>
+              <permission>all</permission>
+            </allow>
+            <allow>
+              <principal>public</principal>
+              <permission>read</permission>
+            </allow>
+          </access>
+        </distribution>
+      </physical>
+      <additionalInfo>This data table was designed to be loaded into the Ocean Data View program.
+        The program is avaliable from the publisher at http://odv.awi.de. High resolution bathymetry
+        for the Santa Barbara Channel to be installed with ODV can be be provided by
+        request.</additionalInfo>
+      <attributeList>
+        <attribute id="ent2.att1">
+          <attributeName>odv_cruise</attributeName>
+          <attributeLabel>Cruise</attributeLabel>
+          <attributeDefinition>column required by ODV</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>any text</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att2">
+          <attributeName>odv_station</attributeName>
+          <attributeLabel>station_name</attributeLabel>
+          <attributeDefinition>2-letter code for this station name</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain enforced="yes">
+                  <codeDefinition>
+                    <code>AB</code>
+                    <definition>Arroyo Burro</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>BI</code>
+                    <definition>Bullito Inshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>BO</code>
+                    <definition>Bullito Offshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>BR</code>
+                    <definition>Bullito Reef</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>CI</code>
+                    <definition>Carpinteria Inshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>CO</code>
+                    <definition>Carpinteria Offshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>CR</code>
+                    <definition>Carpinteria Reef - near mooring site CAR</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>MI</code>
+                    <definition>Mohawk Inshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>MK</code>
+                    <definition>Mohawk Reef</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>NI</code>
+                    <definition>Naples Inshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>NO</code>
+                    <definition>Naples Offshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>NR</code>
+                    <definition>Naples Reef - near mooring site NAP</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>QI</code>
+                    <definition>Arroyo Quemado Inshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>QM</code>
+                    <definition>Arroyo Quemado Reef1 - at pre2005-mooring site AQM</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>QO</code>
+                    <definition>Arroyo Quemado Offshore</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>QR</code>
+                    <definition>Arroyo Quemado Reef - near mooring site AQM</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+          <coverage>
+            <geographicCoverage>
+              <references>AB</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>BI</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>CI</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>CO</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>CR</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>MI</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>MK</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>NI</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>NO</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>NR</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>QI</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>QM</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>QO</references>
+            </geographicCoverage>
+            <geographicCoverage>
+              <references>QR</references>
+            </geographicCoverage>
+          </coverage>
+        </attribute>
+        <attribute id="ent2.att3">
+          <attributeName>odv_type</attributeName>
+          <attributeLabel>Type</attributeLabel>
+          <attributeDefinition>cast type at this station, column required by ODV</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain enforced="yes">
+                  <codeDefinition>
+                    <code>C</code>
+                    <definition>CTD sample</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>B</code>
+                    <definition>Rosette bottle sample</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att4">
+          <attributeName>odv_mm_dd_yy</attributeName>
+          <attributeLabel>mon/day/yr</attributeLabel>
+          <attributeDefinition>format is mm/dd/yyyy, column required by ODV</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>mm/dd/yyyy</formatString>
+              <dateTimePrecision>1</dateTimePrecision>
+            </dateTime>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att5">
+          <attributeName>odv_hh_mm</attributeName>
+          <attributeLabel>hh:mm</attributeLabel>
+          <attributeDefinition>time, in 24 hr format, column required by ODV</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>hh:mm</formatString>
+              <dateTimePrecision>1</dateTimePrecision>
+            </dateTime>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att6">
+          <attributeName>odv_lon</attributeName>
+          <attributeLabel>Longitude Nominal (degE)</attributeLabel>
+          <attributeDefinition>Nominal Longitude for this station. East is positive Column required by ODV</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>degree</customUnit>
+              </unit>
+              <precision>1e-05</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">-180</minimum>
+                  <maximum exclusive="false">180</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.00000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att7">
+          <attributeName>odv_lat</attributeName>
+          <attributeLabel>Latitude Nominal (degN)</attributeLabel>
+          <attributeDefinition>Nominal Latitude for this station. North is positive Column required by ODV</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>degree</customUnit>
+              </unit>
+              <precision>1e-05</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">-90</minimum>
+                  <maximum exclusive="false">90</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.00000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att8">
+          <attributeName>odv_bot_depth</attributeName>
+          <attributeLabel>Bottom Depth [m]</attributeLabel>
+          <attributeDefinition>depth to the bottom at this station, column required by ODV</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>meter</customUnit>
+              </unit>
+              <precision>1</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att9">
+          <attributeName>depth_target_m</attributeName>
+          <attributeLabel>Depth [target m]</attributeLabel>
+          <attributeDefinition>nominal depth of this measurement</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>meter</customUnit>
+              </unit>
+              <precision>1</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">1000</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att10">
+          <attributeName>depth_actual_m</attributeName>
+          <attributeLabel>Depth [actual m]</attributeLabel>
+          <attributeDefinition>depth the rosette bottle was closed. calculated for seawater, positive is down</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>meter</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">1000</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att11">
+          <attributeName>decimal_year</attributeName>
+          <attributeLabel>Decimal Year [yr]</attributeLabel>
+          <attributeDefinition>year (yyyy) plus day-time as a fraction of a year, ie, half way thru 2005 = 2005.5</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>nominalYear</customUnit>
+              </unit>
+              <precision>1e-09</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000000000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att12">
+          <attributeName>longitude_logged</attributeName>
+          <attributeLabel>Lon_degE</attributeLabel>
+          <attributeDefinition>Longitude recorded in the event log for this station, east is positive</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>degree</customUnit>
+              </unit>
+              <precision>1e-05</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">-180</minimum>
+                  <maximum exclusive="false">180</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.00000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att13">
+          <attributeName>latitude_logged</attributeName>
+          <attributeLabel>Lat_degN</attributeLabel>
+          <attributeDefinition>Latitude recorded in the event log for this station. north is positive</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>degree</customUnit>
+              </unit>
+              <precision>1e-05</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">-90</minimum>
+                  <maximum exclusive="false">90</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.00000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att14">
+          <attributeName>consecutive_sample_number</attributeName>
+          <attributeLabel>consecutive sample number</attributeLabel>
+          <attributeDefinition>number assigned to all samples taken from this niskin bottle for various analyses</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>any text</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att15">
+          <attributeName>cast_file_name</attributeName>
+          <attributeLabel>cast file name</attributeLabel>
+          <attributeDefinition>name of the CTD File corresponding to this bottle cast</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>any text</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>no_file</code>
+            <codeExplanation>no mrk file available</codeExplanation>
+          </missingValueCode>
+          <missingValueCode>
+            <code>no_match</code>
+            <codeExplanation>mrk file available, but no matching depth in file</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att16">
+          <attributeName>rosette_bottle_number</attributeName>
+          <attributeLabel>rosette bottle number</attributeLabel>
+          <attributeDefinition>rosette bottle ID</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>any text</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att17">
+          <attributeName>phosphate</attributeName>
+          <attributeLabel>PO4 [umol/l]</attributeLabel>
+          <attributeDefinition>concentration of reactive phosphate</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>micromolePerLiter</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att18">
+          <attributeName>silicate</attributeName>
+          <attributeLabel>Si [umol/l]</attributeLabel>
+          <attributeDefinition>concentration of reactive silicate, h3sio4, or silicic acid</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>micromolePerLiter</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att19">
+          <attributeName>nitrite_nitrate</attributeName>
+          <attributeLabel>NO2+NO3 [umol/l]</attributeLabel>
+          <attributeDefinition>concentration of the sum of nitrate and nitrite</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>micromolePerLiter</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att20">
+          <attributeName>ammonium</attributeName>
+          <attributeLabel>NH4 [umol/l]</attributeLabel>
+          <attributeDefinition>concentration of ammonium</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>micromolePerLiter</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att21">
+          <attributeName>total_dissolved_phosphorus</attributeName>
+          <attributeLabel>TDP</attributeLabel>
+          <attributeDefinition>concentration of dissolved phosphorus, all forms</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>micromolePerLiter</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att22">
+          <attributeName>total_dissolved_nitrogen</attributeName>
+          <attributeLabel>TDN</attributeLabel>
+          <attributeDefinition>concentration of dissolved nitrogen, all forms</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>micromolePerLiter</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att23">
+          <attributeName>particulate_organic_carbon</attributeName>
+          <attributeLabel>POC [umol/l]</attributeLabel>
+          <attributeDefinition>concentration of POC from CHN analysis</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>micromolePerLiter</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att24">
+          <attributeName>particulate_organic_nitrogen</attributeName>
+          <attributeLabel>PON [umol/l]</attributeLabel>
+          <attributeDefinition>concentration of PON from CHN analysis</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>micromolePerLiter</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att25">
+          <attributeName>del_c_13_mean</attributeName>
+          <attributeLabel>13C</attributeLabel>
+          <attributeDefinition>del C13 = (Rsample/Rstandard - 1) * 1000, where R= 13C/12C. Relative to a standard: _______. Early samples are a mean of 2 readings of one sample</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>permil</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att26">
+          <attributeName>del_c_13_stdev</attributeName>
+          <attributeLabel>13C SD</attributeLabel>
+          <attributeDefinition>del C13 = (Rsample/Rstandard - 1) * 1000, where R= 13C/12C. Relative to a standard: _______. Early samples are a mean of 2 readings of one sample</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>permil</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att27">
+          <attributeName>del_n_15_mean</attributeName>
+          <attributeLabel>15 N</attributeLabel>
+          <attributeDefinition>del N15 = (Rsample/Rstandard - 1) * 1000, where R= 15N/14N. Relative to a standard: _______. Early samples are a mean of 2 readings of one sample</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>permil</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att28">
+          <attributeName>del_n15_stdev</attributeName>
+          <attributeLabel>15N SD</attributeLabel>
+          <attributeDefinition>del N15 = (Rsample/Rstandard - 1) * 1000, where R= 15N/14N. Relative to a standard: _______. Early samples are a mean of 2 readings of one sample</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>permil</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att29">
+          <attributeName>biogenic_silica</attributeName>
+          <attributeLabel>BSi</attributeLabel>
+          <attributeDefinition>concentration of particulate biogenic silica, indicative of diatom abundance</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>micromolePerLiter</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att30">
+          <attributeName>lithogenic_silica</attributeName>
+          <attributeLabel>LSi</attributeLabel>
+          <attributeDefinition>concentration of lithogenic silica, indicative of a terrestrial source</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>micromolePerLiter</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att31">
+          <attributeName>chlorophyll_total</attributeName>
+          <attributeLabel>Chl total [ug/l]</attributeLabel>
+          <attributeDefinition>concentration of all extracted chlorophylls</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>microgramPerLiter</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att32">
+          <attributeName>chlorophyll_a</attributeName>
+          <attributeLabel>Chl a [ug/l]</attributeLabel>
+          <attributeDefinition>concentration of chlorophyll-a</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>microgramPerLiter</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att33">
+          <attributeName>phaeopigments</attributeName>
+          <attributeLabel>Phaeopigments [ug/l]</attributeLabel>
+          <attributeDefinition>concentration of phaeopigments</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>microgramPerLiter</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att34">
+          <attributeName>chlorophyll_a_phaeopigments</attributeName>
+          <attributeLabel>Chl a + phaeo</attributeLabel>
+          <attributeDefinition>concentration of Chlorophyll a + phaeopigments</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>microgramPerLiter</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att35">
+          <attributeName>depth_ctd</attributeName>
+          <attributeLabel>Depth (m)</attributeLabel>
+          <attributeDefinition>depth recorded in the seabird .mrk file when rosette bottle closed. usually an average of 4-5 scans</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>decibar</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">5000</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att36">
+          <attributeName>pressure_ctd</attributeName>
+          <attributeLabel>Pressure [db]</attributeLabel>
+          <attributeDefinition>pressure recorded in the seabird .mrk file when rosette bottle closed. usually an average of 4-5 scans</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>decibar</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">5000</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att37">
+          <attributeName>water_temperature00</attributeName>
+          <attributeLabel>Temperature_00</attributeLabel>
+          <attributeDefinition>water temperature from the primary sensor pair. ITS-90, based on International Temperature Scale of 1990, recorded in the seabird .mrk file when rosette bottle closed. usually an average of 4-5 scans</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <customUnit>celsius</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">100</maximum>
+                </bounds>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att38">
+          <attributeName>water_conductivity00</attributeName>
+          <attributeLabel>Conductivity_00</attributeLabel>
+          <attributeDefinition>Conductivity, from primary sensor pair, recorded in the seabird .mrk file when rosette bottle closed. usually an average of 4-5 scans</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>siemensPerMeter</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att39">
+          <attributeName>salinity00</attributeName>
+          <attributeLabel>Salinity_00</attributeLabel>
+          <attributeDefinition>Salinity from primary sensory pair calculated according to the "Practical Salinity Scale of 1978", recorded in the seabird .mrk file when rosette bottle closed. usually an average of 4-5 scans</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <customUnit>dimensionless</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att40">
+          <attributeName>potential_density_anomaly00</attributeName>
+          <attributeLabel>Density</attributeLabel>
+          <attributeDefinition>sigma-theta, from primary sensory pair, recorded in the seabird .mrk file when rosette bottle closed. usually an average of 4-5 scans. Density anomaly calculated with in situ salinity, potential temperature and density=0. sigmatheta = density[kg/m3] - 1000kg/m3. (International Equation of State, Joint Panel on Oceanographic Tables and Standards, 1981),</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <customUnit>kilogramPerMeterCubed</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att41">
+          <attributeName>fluorescence_btl</attributeName>
+          <attributeLabel>Fluoresence</attributeLabel>
+          <attributeDefinition>Fluorescence, Wetlabs ECO-AFL/FL, recorded in the seabird .mrk file when rosette bottle closed. usually an average of 4-5 scans</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>milligramPerMeterCubed</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att42">
+          <attributeName>transmission_btl</attributeName>
+          <attributeLabel>Transmission</attributeLabel>
+          <attributeDefinition>percent of light emitted reaching a sensor. recorded in the seabird .mrk file when rosette bottle closed. usually an average of 4-5 scans</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>percent</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">100</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att43">
+          <attributeName>beam_attenuation_coefficient</attributeName>
+          <attributeLabel>Beam_C</attributeLabel>
+          <attributeDefinition>Calculated from tramsmission accordiing to: c = - ( 1 / (path length[m]) * ln ( light transmission [decimal] ). recorded in the seabird .mrk file when rosette bottle closed. usually an average of 4-5 scans</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>reciprocalMeter</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att44">
+          <attributeName>wind_dir_est</attributeName>
+          <attributeLabel>Estimated Wind Direction</attributeLabel>
+          <attributeDefinition>estimated direction the wind was blowing from (compass point)</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain enforced="yes">
+                  <codeDefinition>
+                    <code>N</code>
+                    <definition>0</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>NE</code>
+                    <definition>45</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>E</code>
+                    <definition>90</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>SE</code>
+                    <definition>135</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>180</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>SW</code>
+                    <definition>225</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>S</code>
+                    <definition>270</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>NW</code>
+                    <definition>315</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>calm</code>
+                    <definition>no wind</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att45">
+          <attributeName>wind_speed_est</attributeName>
+          <attributeLabel>Estimated Wind Speed</attributeLabel>
+          <attributeDefinition>estimated speed of wind, in nauticalMilesPerHour</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>any text</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att46">
+          <attributeName>water_color</attributeName>
+          <attributeLabel>Water Color</attributeLabel>
+          <attributeDefinition>observed color of the water at the surface</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>any text</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att47">
+          <attributeName>disk_of_sun</attributeName>
+          <attributeLabel>Disk of Sun</attributeLabel>
+          <attributeDefinition>observed visibility of disk of sun, either visible or obscure</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain enforced="yes">
+                  <codeDefinition>
+                    <code>visible</code>
+                    <definition>disk visible</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>not visible</code>
+                    <definition>disk not visible</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>obscure</code>
+                    <definition>disk obscure</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>DN</code>
+                    <definition>disk not visible</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>DO</code>
+                    <definition>disk obscure</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>DV</code>
+                    <definition>disk visible</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>DW</code>
+                    <definition>???</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att48">
+          <attributeName>sky_state</attributeName>
+          <attributeLabel>Sky State</attributeLabel>
+          <attributeDefinition>estimated cloud cover and/or cloud type</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>any text</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att49">
+          <attributeName>sea_state</attributeName>
+          <attributeLabel>Sea State</attributeLabel>
+          <attributeDefinition>wave height and condition</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>any text</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent2.att50">
+          <attributeName>comments</attributeName>
+          <attributeLabel>Ccomments</attributeLabel>
+          <attributeDefinition>Notes about these measurements</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>any text</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>2282</numberOfRecords>
+    </dataTable>
+    <dataTable id="ent03">
+      <entityName>Monthly CTD downcasts, non-registered stations, all years</entityName>
+      <entityDescription>CTD data from opportunistic and ad hoc downcasts at NON-REGISTERED stations, averaged over 1m bins. File format is acceptable input for Ocean Data View.</entityDescription>
+      <physical>
+        <objectName>LTER_monthly_downcasts_non_registered_stations_20140429.txt</objectName>
+        <size unit="byte">71189</size>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>;</fieldDelimiter>
+              <collapseDelimiters>no</collapseDelimiters>
+              <quoteCharacter>"</quoteCharacter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url function="download"
+              >http://sbc.lternet.edu/external/Ocean/Data/Monthly_Water_Sampling/LTER_monthly_downcasts_non_registered_stations_20140429.txt</url>
+          </online>
+          <access authSystem="knb" order="allowFirst">
+            <allow>
+              <principal>uid=SBC,o=LTER,dc=ecoinformatics,dc=org</principal>
+              <permission>all</permission>
+            </allow>
+            <allow>
+              <principal>public</principal>
+              <permission>read</permission>
+            </allow>
+          </access>
+        </distribution>
+      </physical>
+      <additionalInfo>Casts are often collected opportunistically for ancillary projects. These
+        stations do not have standard SBC names, and codes do not necessarily refer to unique
+        locations. Contact us for more information. This data table was designed to be loaded
+        into the Ocean Data View program. The program is avaliable from the publisher at
+        http://odv.awi-bremerhaven.de/ . High resolution bathymetry for the Santa Barbara Channel to
+        be installed with ODV can be provided by request.</additionalInfo>
+      <attributeList>
+        <attribute id="ent3.att1">
+          <attributeName>odv_cruise</attributeName>
+          <attributeLabel>Cruise</attributeLabel>
+          <attributeDefinition>column required by ODV.</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>any text</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att2">
+          <attributeName>odv_station</attributeName>
+          <attributeLabel>station_name</attributeLabel>
+          <attributeDefinition>2-letter code for this station name</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>any text</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att3">
+          <attributeName>odv_type</attributeName>
+          <attributeLabel>Type</attributeLabel>
+          <attributeDefinition>cast type at this station, column required by ODV</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain enforced="yes">
+                  <codeDefinition>
+                    <code>C</code>
+                    <definition>CTD sample</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>B</code>
+                    <definition>Rosette bottle sample</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att4">
+          <attributeName>odv_mm_dd_yy</attributeName>
+          <attributeLabel>mon/day/yr</attributeLabel>
+          <attributeDefinition>format is mm/dd/yyyy, column required by ODV</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>mm/dd/yyyy</formatString>
+              <dateTimePrecision>1</dateTimePrecision>
+            </dateTime>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att5">
+          <attributeName>odv_hh_mm</attributeName>
+          <attributeLabel>hh:mm</attributeLabel>
+          <attributeDefinition>time, UTC, in 24 hr format, column required by ODV</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">string</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>hh:mm</formatString>
+              <dateTimePrecision>1</dateTimePrecision>
+            </dateTime>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att6">
+          <attributeName>odv_lon</attributeName>
+          <attributeLabel>Lon (degE)</attributeLabel>
+          <attributeDefinition>Longitude recorded by the first ctd sample at the station, if available. If not available, then nominal longitude for this location. East is positive. Column required by ODV: all samples which are to be considered at same station must have the same value in this column.</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>degree</customUnit>
+              </unit>
+              <precision>1e-05</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">-180</minimum>
+                  <maximum exclusive="false">180</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.00000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att7">
+          <attributeName>odv_lat</attributeName>
+          <attributeLabel>Lat (degN)</attributeLabel>
+          <attributeDefinition>Latitude recorded by the first ctd sample at the station, if available. If not available, then nominal latitude for this location. North is positive. Column required by ODV: all samples which are to be considered at same station must have the same value in this column.</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>degree</customUnit>
+              </unit>
+              <precision>1e-05</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">-90</minimum>
+                  <maximum exclusive="false">90</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.00000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att8">
+          <attributeName>odv_bot_depth</attributeName>
+          <attributeLabel>Bot. Depth [m]</attributeLabel>
+          <attributeDefinition>estimated depth to the bottom at this station, column required by ODV</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>meter</customUnit>
+              </unit>
+              <precision>1</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att9">
+          <attributeName>ctd_depth</attributeName>
+          <attributeLabel>Depth SW [m]</attributeLabel>
+          <attributeDefinition>depth based on seawater density, averaged for points in this bin. Positive is down.</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>meter</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">1000</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att10">
+          <attributeName>decimal_year</attributeName>
+          <attributeLabel>Decimal Year [yr]</attributeLabel>
+          <attributeDefinition>year (yyyy) plus day-time as a fraction of a year, ie, half way thru 2005 = 2005.5</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>nominalYear</customUnit>
+              </unit>
+              <precision>1e-09</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000000000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att11">
+          <attributeName>lon</attributeName>
+          <attributeLabel>lon</attributeLabel>
+          <attributeDefinition>longitude of this measurement, recorded by the CTD, if available. If not recorded, then nominal longitude. East is positive.</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>degree</customUnit>
+              </unit>
+              <precision>1e-05</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">-180</minimum>
+                  <maximum exclusive="false">180</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.00000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att12">
+          <attributeName>lat</attributeName>
+          <attributeLabel>lat</attributeLabel>
+          <attributeDefinition>latitude of this measurement, recorded by the CTD, if available. If not recorded, then nominal latitude. North is positive.</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>degree</customUnit>
+              </unit>
+              <precision>1e-05</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">-90</minimum>
+                  <maximum exclusive="false">90</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.00000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att13">
+          <attributeName>ctd_press</attributeName>
+          <attributeLabel>Pressure [db]</attributeLabel>
+          <attributeDefinition>average seawater pressure, decibar</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>decibar</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">1000</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att14">
+          <attributeName>ctd_pressure_bin</attributeName>
+          <attributeLabel>Pressure bins [db]</attributeLabel>
+          <attributeDefinition>center of the pressure averaging interval</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>decibar</customUnit>
+              </unit>
+              <precision>1</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">1000</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att15">
+          <attributeName>ctd_temp00</attributeName>
+          <attributeLabel>T00</attributeLabel>
+          <attributeDefinition>ITS-90, based on International Temperature Scale of 1990</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <customUnit>celsius</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">100</maximum>
+                </bounds>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att16">
+          <attributeName>ctd_cond00</attributeName>
+          <attributeLabel>C00</attributeLabel>
+          <attributeDefinition>Conductivity, from primary sensor</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>siemensPerMeter</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att17">
+          <attributeName>ctd_v0</attributeName>
+          <attributeLabel>v0</attributeLabel>
+          <attributeDefinition>voltage, 0 channel, raw data for diagnostic purposes</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>volt</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">5</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att18">
+          <attributeName>ctd_v1</attributeName>
+          <attributeLabel>v1</attributeLabel>
+          <attributeDefinition>voltage, 1 channel, raw data for diagnostic purposes</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>volt</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">5</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att19">
+          <attributeName>ctd_v2</attributeName>
+          <attributeLabel>v2</attributeLabel>
+          <attributeDefinition>voltage, 2 channel, raw data for diagnostic purposes</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>volt</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">5</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att20">
+          <attributeName>ctd_v3</attributeName>
+          <attributeLabel>v3</attributeLabel>
+          <attributeDefinition>voltage, 3 channel, raw data for diagnostic purposes</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>volt</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">5</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att21">
+          <attributeName>ctd_descent_rate</attributeName>
+          <attributeLabel>Descent Rate [m/s]</attributeLabel>
+          <attributeDefinition>descent rate of the CTD package</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>meterPerSecond</customUnit>
+              </unit>
+              <precision>0.01</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">100</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.00</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att22">
+          <attributeName>ctd_xmiss_volts</attributeName>
+          <attributeLabel>Trans [%]</attributeLabel>
+          <attributeDefinition>percent of light emitted by a source reaching a sensor across a path of known length (usually 0.25m)</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>percent</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">100</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att23">
+          <attributeName>ctd_xmiss_beamc</attributeName>
+          <attributeLabel>Beam C</attributeLabel>
+          <attributeDefinition>calculated from transmission accordiing to: Beam attenuation coefficient c = - ( 1 / (path length[m]) * ln ( light transmission [decimal] )</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>reciprocalMeter</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att24">
+          <attributeName>ctd_fluor_volts</attributeName>
+          <attributeLabel>Fluor</attributeLabel>
+          <attributeDefinition>Estimated chl contentration from in-situ fluorometer</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>volt</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att25">
+          <attributeName>ctd_upoly_unused</attributeName>
+          <attributeLabel>upoly</attributeLabel>
+          <attributeDefinition>reserved for extra sensor (user-supplied polynomial)</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>micromolePerLiter</customUnit>
+              </unit>
+              <precision>0.001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att26">
+          <attributeName>ctd_potential_temp00</attributeName>
+          <attributeLabel>potemp00</attributeLabel>
+          <attributeDefinition>Temperature after the effects of compression have been removed. Defined as the temperature of a parcel of water at the sea surface after it has been raised adiabatically from some depth in the ocean</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <customUnit>celsius</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att27">
+          <attributeName>ctd_sal00</attributeName>
+          <attributeLabel>sal00 [PSU]</attributeLabel>
+          <attributeDefinition>Salinity calculated according to the "Practical Salinity Scale of 1978"</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <customUnit>dimensionless</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att28">
+          <attributeName>ctd_sigmatheta00</attributeName>
+          <attributeLabel>sigma00</attributeLabel>
+          <attributeDefinition>sigma-theta. Density anomaly calculated with in situ salinity, potential temperature and pressure=0. sigmatheta = density[kg/m3] - 1000kg/m3. (International Equation of State, Joint Panel on Oceanographic Tables and Standards, 1981)</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <customUnit>kilogramPerMeterCubed</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att29">
+          <attributeName>ctd_specific_volume_anomaly00</attributeName>
+          <attributeLabel>sva00</attributeLabel>
+          <attributeDefinition>difference between the in situ specific volume (m3/kg) of a parcel and specific volume at the same pressure with S=35 and T=0[celsius].</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <interval>
+              <unit>
+                <customUnit>cubicMeterPerKilogram</customUnit>
+              </unit>
+              <precision>0.0001</precision>
+              <numericDomain>
+                <numberType>real</numberType>
+              </numericDomain>
+            </interval>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999.0000</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute id="ent3.att30">
+          <attributeName>ctd_scans_per_bin</attributeName>
+          <attributeLabel>scans/bin</attributeLabel>
+          <attributeDefinition>the number of data lines averaged in this bin</attributeDefinition>
+          <storageType typeSystem="http://www.w3.org/2001/XMLSchema-datatypes">float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>number</customUnit>
+              </unit>
+              <precision>1</precision>
+              <numericDomain>
+                <numberType>integer</numberType>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>99999</code>
+            <codeExplanation>no measurement collected at this point, or not available</codeExplanation>
+          </missingValueCode>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>335</numberOfRecords>
+    </dataTable>
+  </dataset>
+  <additionalMetadata>
+    <metadata>
+      <stmml:unitList>
+        <stmml:unit abbreviation="C" id="celsius" multiplierToSI="1" name="celsius"
+          parentSI="kelvin" constantToSI="273.18">
+          <stmml:description>SI-derived unit of temperature</stmml:description>
+        </stmml:unit>
+        <stmml:unit abbreviation="m³/kg" id="cubicMeterPerKilogram" multiplierToSI="1"
+          name="cubicMeterPerKilogram" unitType="specificVolume">
+          <stmml:description>cubic meters per kilogram</stmml:description>
+        </stmml:unit>
+        <stmml:unit abbreviation="dbar" id="decibar" multiplierToSI="10000" name="decibar"
+          parentSI="pascal" unitType="pressure">
+          <stmml:description>decibar = 0.1 bar</stmml:description>
+        </stmml:unit>
+        <stmml:unit abbreviation="°" id="degree" multiplierToSI="0.0174532924" name="degree"
+          parentSI="radian" unitType="angle">
+          <stmml:description>360 degrees comprise a unit circle.</stmml:description>
+        </stmml:unit>
+        <stmml:unit id="dimensionless" name="dimensionless" unitType="dimensionless">
+          <stmml:description>a designation asserting the absence of an associated
+            unit</stmml:description>
+        </stmml:unit>
+        <stmml:unit abbreviation="kg/m3" id="kilogramPerMeterCubed" multiplierToSI="1"
+          name="kilogramPerMeterCubed" parentSI="kilogramPerMeterCubed" unitType="massDensity">
+          <stmml:description>kilograms per cubit meter</stmml:description>
+        </stmml:unit>
+        <stmml:unit abbreviation="m" id="meter" multiplierToSI="1" name="meter" unitType="length">
+          <stmml:description>SI unit of length</stmml:description>
+        </stmml:unit>
+        <stmml:unit abbreviation="m/s" id="meterPerSecond" name="meterPerSecond" unitType="speed">
+          <stmml:description/>
+        </stmml:unit>
+        <stmml:unit id="microgramPerLiter" name="microgramPerLiter" parentSI="gramPerMeterCubed"
+          constantToSI="0">
+          <stmml:description>concentration unit. Based on the dimensions (mass/volume), the unitType
+            is probably density, but this would be misleading, so it is left NULL
+            here.</stmml:description>
+        </stmml:unit>
+        <stmml:unit id="micromolePerLiter" name="micromolePerLiter" parentSI="molePerMeterCubed"
+          constantToSI="0" unitType="amountOfSubstanceConcentration">
+          <stmml:description>commonly used for concentration of some chemical constituents of
+            natural water bodies, e.g., nutrients. It has the same magnitude as micromolar, but
+            micromolar can only be used for a dissolved constituent</stmml:description>
+        </stmml:unit>
+        <stmml:unit id="milligramPerMeterCubed" name="milligramPerMeterCubed"
+          parentSI="kilogramPerMeterCubed" constantToSI="0" unitType="volumetricMassDensity">
+          <stmml:description>concentration unit, sometimes used for pigments in natural waters.same
+            magnitude as microgramPerLiter</stmml:description>
+        </stmml:unit>
+        <stmml:unit id="nominalYear" multiplierToSI="31536000" name="nominalYear" parentSI="second"
+          unitType="time">
+          <stmml:description>one year excluding leap seconds and leap days, 31536000
+            seconds</stmml:description>
+        </stmml:unit>
+        <stmml:unit id="number" name="number" unitType="dimensionless">
+          <stmml:description>a number</stmml:description>
+        </stmml:unit>
+        <stmml:unit abbreviation="%" id="percent" multiplierToSI="1" name="percent"
+          unitType="dimensionless">
+          <stmml:description>ratio of two quantities as percent composition
+            (1:100)</stmml:description>
+        </stmml:unit>
+        <stmml:unit abbreviation="o/oo" id="permil" multiplierToSI="0.001" name="permil"
+          constantToSI="0" unitType="dimensionless">
+          <stmml:description>permil is a shorthand way of saying parts per thousand parts. values
+            must have the same dimensions.</stmml:description>
+        </stmml:unit>
+        <stmml:unit abbreviation="m-1" id="reciprocalMeter" name="reciprocalMeter" parentSI="meter"
+          unitType="lengthReciprocal">
+          <stmml:description>per meter, describes optical properties</stmml:description>
+        </stmml:unit>
+        <stmml:unit abbreviation="S/m" id="siemensPerMeter" multiplierToSI="1"
+          name="siemensPerMeter" unitType="conductance">
+          <stmml:description>siemens per meter (electrolytic conductivity of a
+            solution)</stmml:description>
+        </stmml:unit>
+        <stmml:unit abbreviation="V" id="volt" multiplierToSI="1" name="volt"
+          unitType="potentialDifference">
+          <stmml:description>volt</stmml:description>
+        </stmml:unit>
+      </stmml:unitList>
+    </metadata>
+  </additionalMetadata>
+</eml:eml>
