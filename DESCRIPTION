@@ -10,7 +10,8 @@ Encoding: UTF-8
 LazyData: true
 Imports:
   httr,
-  digest
+  digest,
+  xml2
 Suggests:
   testthat
 RoxygenNote: 5.0.1
