@@ -28,4 +28,3 @@ the subSelector will return NA if the xpath it is trying to select is
 not present. The `pos` argument can be used to check a specific value
 of such a list.
 }
-

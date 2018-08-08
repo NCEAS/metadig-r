@@ -15,4 +15,3 @@ This function is invoked for its side-effect.
 \description{
 Set the status to FAILURE and, optionally, set an output message.
 }
-

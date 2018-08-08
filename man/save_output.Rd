@@ -17,4 +17,3 @@ This function is invoked for its side-effect.
 \description{
 Note: Modifies global environment!
 }
-
