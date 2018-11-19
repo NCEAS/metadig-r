@@ -14,4 +14,3 @@ ns_strip(x, nsPrefix)
 \description{
 Strip the specified namespace from a document
 }
-

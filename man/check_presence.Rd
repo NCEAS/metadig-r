@@ -21,4 +21,3 @@ if no elements were present.
 \details{
 Note: Modifies global environment!
 }
-

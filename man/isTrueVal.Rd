@@ -24,4 +24,3 @@ xpath selector.
 If the variable is not defined or the value is NA, then FALSE
 is returned. TRUE is only returned if the value is present and is TRUE.
 }
-

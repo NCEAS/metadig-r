@@ -40,7 +40,7 @@ about the sucess or failure of the check.
 }
 \examples{
 checkXML <- system.file("extdata/dataset_title_length-check.xml", package="metadig")
-metadataXML<- system.file("extdata/example_eml.xml", package="metadig")
+metadataXML<- system.file("extdata/example_EML.xml", package="metadig")
 result <- runCheck(checkXML, metadataXML)
 }
 \seealso{
@@ -48,4 +48,3 @@ result <- runCheck(checkXML, metadataXML)
 }
 \keyword{check}
 \keyword{quality}
-

@@ -9,4 +9,3 @@ isCheckValid(checkDoc, metadataDoc)
 \description{
 Check if a check can be run against a document.
 }
-
