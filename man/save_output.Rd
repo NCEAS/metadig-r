@@ -2,19 +2,21 @@
 % Please edit documentation in R/helpers.R
 \name{save_output}
 \alias{save_output}
-\title{Save an object as an output.}
+\title{Save an object as an output}
 \usage{
 save_output(x, type = "text")
 }
 \arguments{
 \item{x}{(any) Object to save as output.}
 
-\item{type}{(character) The mime type to save the object as.}
+\item{type}{(character) The MIME type to save the object as.}
 }
 \value{
 This function is invoked for its side-effect.
 }
 \description{
-Note: Modifies global environment!
+Save an object as an output.
 }
-
+\details{
+Note: Modifies the global environment.
+}

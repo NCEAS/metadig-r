@@ -7,25 +7,24 @@
 isDefined(variableName, variable = NA, pos = as.integer(1))
 }
 \arguments{
-\item{variableName}{The name of the variable that contains selected values}
+\item{variableName}{The name of the variable that contains selected values.}
 
-\item{variable}{The variable that contains selected values}
+\item{variable}{The variable that contains selected values.}
 
-\item{pos}{The list element to check}
+\item{pos}{The list element to check.}
 }
 \value{
 logical
 }
 \description{
-This function checks that value returned from an mdqe
+This function checks the value returned from an mdqe
 xpath selector.
 }
 \details{
 This check can be used to test values from a selector that
-uses a subSelector. The value returned from this type of selector 
+uses a subSelector. The value returned from this type of selector
 is a list that could possibly contain elements that have no defined value, i.e.
-the subSelector will return NA if the xpath it is trying to select is
-not present. The `pos` argument can be used to check a specific value
+the subSelector will return \code{NA} if the xpath it is trying to select is
+not present. The 'pos' argument can be used to check a specific value
 of such a list.
 }
-

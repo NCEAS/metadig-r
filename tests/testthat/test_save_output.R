@@ -1,4 +1,4 @@
-context("save_output")
+context("save_output()")
 
 test_that("a text output can be saved", {
   if ("mdq_result" %in% ls(envir = .GlobalEnv)) rm(mdq_result, envir = .GlobalEnv)

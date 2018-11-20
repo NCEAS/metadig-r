@@ -1,4 +1,4 @@
-context("set_status")
+context("set_status()")
 
 test_that("a status can be set", {
   if ("mdq_result" %in% ls(envir = .GlobalEnv)) rm(mdq_result, envir = .GlobalEnv)

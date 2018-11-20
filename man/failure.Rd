@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{failure}
 \alias{failure}
-\title{Set the status to FAILURE and, optionally, set an output message.}
+\title{Set the status to FAILURE}
 \usage{
 failure(message = NULL)
 }
@@ -13,6 +13,5 @@ failure(message = NULL)
 This function is invoked for its side-effect.
 }
 \description{
-Set the status to FAILURE and, optionally, set an output message.
+This function sets the status to FAILURE and, optionally, sets an output message.
 }
-
