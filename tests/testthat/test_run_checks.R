@@ -5,7 +5,7 @@ test_that("runCheck() works", {
   library(metadig)
 
   checkFile <- system.file("extdata/dataset_title_length-check.xml", package="metadig")
-  metadataFile <- system.file("extdata/example_eml.xml", package="metadig")
+  metadataFile <- system.file("extdata/example_EML.xml", package="metadig")
   results <- runCheck(checkFile, metadataFile)
   result <- results[[1]]
   # The title for the test EML file is too short, so this check should fail.
