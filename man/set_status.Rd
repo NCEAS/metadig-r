@@ -22,4 +22,3 @@ Repeated calls to this function within a single check has special behavior:
 - If the status is ever set to FAILURE, it cannot be set back to SUCCESS
   - If the status is ever set to SUCCESS, it can always be set to FAILURE
 }
-

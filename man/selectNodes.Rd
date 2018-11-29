@@ -19,4 +19,3 @@ an XML2 nodeset of the selected values (or XML2 nodes) from the metadata documen
 \description{
 Select data values from a metadata document as specified in a checks selectors.
 }
-
