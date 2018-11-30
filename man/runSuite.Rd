@@ -19,7 +19,7 @@ A named list of results.
 \description{
 This function runs a suite of quality checks based on an XML document
 that conforms to the format specified with the reference implementation
-of the metadata quality engine: <https://github.com/NCEAS/mdqengine>.
+of the metadata quality engine: \url{https://github.com/NCEAS/mdqengine}.
 }
 \examples{
 \dontrun{

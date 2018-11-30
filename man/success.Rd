@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{success}
 \alias{success}
-\title{Set the status to SUCCESS and, optionally, set an output message.}
+\title{Set the status to SUCCESS}
 \usage{
 success(message = NULL)
 }
@@ -13,5 +13,5 @@ success(message = NULL)
 This function is invoked for its side-effect.
 }
 \description{
-Set the status to SUCCESS and, optionally, set an output message.
+This function sets the status to SUCCESS and, optionally, sets an output message.
 }

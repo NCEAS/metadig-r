@@ -1,4 +1,4 @@
-context("check_presence")
+context("check_presence()")
 
 test_that("status is set to FAILURE if any expectation is FAILURE", {
   if ("mdq_result" %in% ls(envir = .GlobalEnv)) rm(mdq_result, envir = .GlobalEnv)
@@ -8,19 +8,19 @@ test_that("status is set to FAILURE if any expectation is FAILURE", {
   expect_true(mdq_result[["status"]] == "FAILURE")
 
   # FS
-  rm(list = ls(all=TRUE))
+  rm(list = ls(all = TRUE))
   check_presence(list())
   check_presence(list(""))
   expect_true(mdq_result[["status"]] == "FAILURE")
 
   # SF
-  rm(list = ls(all=TRUE))
+  rm(list = ls(all = TRUE))
   check_presence(list(""))
   check_presence(list())
   expect_true(mdq_result[["status"]] == "FAILURE")
 
   # FSF
-  rm(list = ls(all=TRUE))
+  rm(list = ls(all = TRUE))
   check_presence(list())
   check_presence(list(""))
   check_presence(list())

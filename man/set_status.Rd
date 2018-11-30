@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{set_status}
 \alias{set_status}
-\title{helpers.R}
+\title{Set the status in a check}
 \usage{
 set_status(status)
 }
@@ -13,12 +13,12 @@ set_status(status)
 This function is invoked for its side-effect.
 }
 \description{
-General helpers for the check writing that are not explicitly checks.
-Set the status in a check.
+This function sets the status in a check.
 }
 \details{
 Repeated calls to this function within a single check has special behavior:
-
-- If the status is ever set to FAILURE, it cannot be set back to SUCCESS
-  - If the status is ever set to SUCCESS, it can always be set to FAILURE
+\itemize{
+\item If the status is ever set to FAILURE, it cannot be set back to SUCCESS
+\item If the status is ever set to SUCCESS, it can always be set to FAILURE
+}
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/checks.R
 \name{check_presence}
 \alias{check_presence}
-\title{checks.R}
+\title{Check for the presence of an element}
 \usage{
 check_presence(x)
 }
@@ -13,11 +13,10 @@ check_presence(x)
 This function is invoked for its side-effect.
 }
 \description{
-Utility functions to write checks with.
-Check for the presence of an element. Specifically, this function returns
-a SUCCESS status if one or more elements were present and a FAILURE status
-if no elements were present.
+This function checks for the presence of an element in a metadata file.
+Specifically, this function returns a SUCCESS status if one or more elements
+are present and a FAILURE status if no elements are present.
 }
 \details{
-Note: Modifies global environment!
+Note: Modifies the global environment.
 }

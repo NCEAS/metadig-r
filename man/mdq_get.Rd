@@ -2,18 +2,17 @@
 % Please edit documentation in R/cache.R
 \name{mdq_get}
 \alias{mdq_get}
-\title{cache.R}
+\title{Get the file path for an object}
 \usage{
 mdq_get(url)
 }
 \arguments{
-\item{url}{(character) Any URL}
+\item{url}{(character) Any URL.}
 }
 \value{
-(character) The path to the file
+(character) The path to the file.
 }
 \description{
-Functions related to downloading and caching objects.
 Get the file path for an object specified by its URL. If the content at the
 given URL has not been cached previously, the bytes are retrieved and cached.
 }
