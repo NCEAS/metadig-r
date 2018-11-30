@@ -19,7 +19,7 @@
 #'
 #' @examples
 #' checkXML <- system.file("extdata/dataset_title_length-check.xml", package = "metadig")
-#' metadataXML<- system.file("extdata/example_EML.xml", package = "metadig")
+#' metadataXML <- system.file("extdata/example_EML.xml", package = "metadig")
 #' result <- runCheck(checkXML, metadataXML)
 runCheck <- function(checkXML, metadataXML, checkFunction) {
   stopifnot(is.character(checkXML), length(checkXML) == 1, nchar(checkXML) > 0)
