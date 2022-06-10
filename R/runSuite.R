@@ -18,7 +18,7 @@
 #' \dontrun{
 #' metadataXML <- system.file("extdata/example_EML.xml", package = "metadig")
 #' suiteXML <- system.file("extdata/example_suite.xml", package = "metadig")
-#' dirXML <- systemfile("extdata", package = "metadig")
+#' dirXML <- system.file("extdata", package = "metadig")
 #'
 #' results <- runSuite(suiteXML, dirXML, metadataXML)
 #' }
