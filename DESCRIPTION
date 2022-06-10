@@ -1,7 +1,7 @@
 Package: metadig
 Type: Package
 Title: Author MetaDIG checks in R
-Version: 0.2.0
+Version: 0.2.1
 Description: A set of utility methods for authoring MetaDIG checks in R.
 Authors@R: c(
   person("Bryce", "Mecum", role = "aut", email = "mecum@nceas.ucsb.edu", comment=c(ORCID = "0000-0002-0381-3766")),
