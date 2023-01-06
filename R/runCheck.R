@@ -9,6 +9,8 @@
 #'
 #' @param checkXML (character) The filepath for a quality check document.
 #' @param metadataXML (character) The filepath for a metadata document to check.
+#' @param sysmetaXML (character) The filepath for a system metadata document corresponding to the
+#' metadata document, or a character string literal containing the system metadata.
 #' @param checkFunction (not yet implemented)
 #'
 #' @return A named list of check results.
@@ -20,10 +22,21 @@
 #' @examples
 #' checkXML <- system.file("extdata/dataset_title_length-check.xml", package = "metadig")
 #' metadataXML <- system.file("extdata/example_EML.xml", package = "metadig")
-#' result <- runCheck(checkXML, metadataXML)
-runCheck <- function(checkXML, metadataXML, checkFunction) {
+#' sysmetaXML <- system.file("extdata/example_sysmeta.xml", package = "metadig")
+#' result <- runCheck(checkXML, metadataXML, sysmetaXML)
+runCheck <- function(checkXML, metadataXML, sysmetaXML, checkFunction) {
   stopifnot(is.character(checkXML), length(checkXML) == 1, nchar(checkXML) > 0)
   stopifnot(is.character(metadataXML), length(metadataXML) == 1, nchar(metadataXML) > 0)
+
+  if (file.exists(sysmetaXML)){ # if string can be found as a file, treat it like a file
+    sysmeta <- readChar(sysmetaXML, file.info(sysmetaXML)$size)
+  } else if (!file.exists(sysmetaXML) && tools::file_ext(sysmetaXML) %in% c("xml", "sm")){ # if string
+    # can't be found as a file, but looks like a sysmeta file, throw a warning
+    warning("sysmetaXML appears to be a file, but cannot be found.")
+    sysmeta <- NULL
+  } else {
+    sysmeta <- sysmetaXML
+  }
 
   # Read in the metadata document that will be checked.
   metadataDoc <- read_xml(metadataXML)
@@ -59,6 +72,7 @@ runCheck <- function(checkXML, metadataXML, checkFunction) {
   selectors <- xml_find_all(checkDoc, ".//selector")
   variables <- ""
   codeEnv <- new.env()
+  assign("systemMetadata", value = sysmeta, envir = codeEnv)
   # Extract values from the metadata document as specified in the check selectors.
   # Each selector will return a single object, which may be a single value, a list,
   # or a list of lists. It is assumed that the check code will know how to handle

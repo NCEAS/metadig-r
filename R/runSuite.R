@@ -7,6 +7,7 @@
 #' @param suiteXML (character) A filepath for the quality suite document.
 #' @param dirXML (character) A filepath for the directory storing quality check documents.
 #' @param metadataXML (character) A filepath for the metadata document to check.
+#' @param sysmetaXML (character) A file path for the system metadata document corresponding to the metadata document
 #'
 #' @return A named list of results.
 #'
@@ -19,10 +20,11 @@
 #' metadataXML <- system.file("extdata/example_EML.xml", package = "metadig")
 #' suiteXML <- system.file("extdata/example_suite.xml", package = "metadig")
 #' dirXML <- system.file("extdata", package = "metadig")
+#' sysmetaXML <- system.file("extdata/example_sysmeta.xml", package = "metadig")
 #'
-#' results <- runSuite(suiteXML, dirXML, metadataXML)
+#' results <- runSuite(suiteXML, dirXML, metadataXML, sysmetaXML)
 #' }
-runSuite <- function(suiteXML, dirXML, metadataXML) {
+runSuite <- function(suiteXML, dirXML, metadataXML, sysmetaXML) {
   stopifnot(is.character(suiteXML), length(suiteXML) == 1, nchar(suiteXML) > 0)
   stopifnot(is.character(dirXML), length(dirXML) == 1, nchar(dirXML) > 0)
   stopifnot(is.character(metadataXML), length(metadataXML) == 1, nchar(metadataXML) > 0)
@@ -31,6 +33,9 @@ runSuite <- function(suiteXML, dirXML, metadataXML) {
   suite <- read_xml(suiteXML)
   ids <- xml_find_all(suite, "check")
   ids <- xml_text(ids)
+
+  # Read in sysmeta as a string
+  sysmeta <- readChar(sysmetaXML, file.info(sysmetaXML)$size)
 
   # Translate IDs to list of check XML filepaths
   checks <- list.files(dirXML, full.names = TRUE)
@@ -42,7 +47,7 @@ runSuite <- function(suiteXML, dirXML, metadataXML) {
   suite <- names(run)
 
   # Use runCheck() and iterate over checks in suite using the same metadata file
-  results <- lapply(suite, runCheck, metadataXML)
+  results <- lapply(suite, runCheck, metadataXML, sysmetaXML = sysmetaXML)
   names(results) <- basename(suite)
   results
 }
