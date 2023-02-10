@@ -6,7 +6,7 @@
 #' Get the file path for an object specified by its URL. If the content at the
 #' given URL has not been cached previously, the bytes are retrieved and cached.
 #'
-#' @param url (character) Any URL.
+#' @param url (character) Any URL to an object.
 #'
 #' @return (character) The path to the file.
 #'
@@ -16,6 +16,12 @@
 #' @export
 mdq_get <- function(url) {
   stopifnot(is.character(url), nchar(url) > 0)
+
+  sys_url <- gsub("/object/", "/meta/", url)
+
+  x <- xml2::read_xml(sys_url)
+  fname <- xml2::xml_text(xml2::xml_find_all(x, "fileName"))
+  fext <- tools::file_ext(fname)
 
   temp_dir = Sys.getenv("MDQE_CACHE_DIR", tempdir())
   if (temp_dir == "") stop("MDQE_CACHE_DIR was not set.")
@@ -27,7 +33,7 @@ mdq_get <- function(url) {
   stopifnot(file.exists(cache_dir))
 
   key = digest::digest(url, algo = "sha256", ascii = TRUE, serialize = FALSE)
-  file_path = file.path(cache_dir, key)
+  file_path = file.path(cache_dir, paste(key, fext, sep = "."))
 
   if (!file.exists(file_path)) {
     request <- httr::GET(url)

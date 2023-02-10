@@ -7,7 +7,7 @@
 mdq_get(url)
 }
 \arguments{
-\item{url}{(character) Any URL.}
+\item{url}{(character) Any URL to an object.}
 }
 \value{
 (character) The path to the file.
