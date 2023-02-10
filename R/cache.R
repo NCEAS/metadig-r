@@ -17,11 +17,18 @@
 mdq_get <- function(url) {
   stopifnot(is.character(url), nchar(url) > 0)
 
-  sys_url <- gsub("/object/", "/meta/", url)
+  if (grepl("object", url)){
+    sys_url <- gsub("/object/", "/meta/", url)
 
-  x <- xml2::read_xml(sys_url)
-  fname <- xml2::xml_text(xml2::xml_find_all(x, "fileName"))
-  fext <- tools::file_ext(fname)
+    x <- xml2::read_xml(sys_url, encoding = "UTF-8")
+    fname <- xml2::xml_text(xml2::xml_find_all(x, "fileName"))
+    fext <- tools::file_ext(fname)
+  } else if (grepl("meta", url)){
+    fext <- "xml"
+  } else {
+    fext <- NA
+  }
+
 
   temp_dir = Sys.getenv("MDQE_CACHE_DIR", tempdir())
   if (temp_dir == "") stop("MDQE_CACHE_DIR was not set.")
@@ -37,7 +44,7 @@ mdq_get <- function(url) {
 
   if (!file.exists(file_path)) {
     request <- httr::GET(url)
-    writeLines(httr::content(request, as = "text"), con = file_path)
+    writeLines(httr::content(request, as = "text", encoding = "UTF-8"), con = file_path)
   }
 
   stopifnot(file.exists(file_path))
