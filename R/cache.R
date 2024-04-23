@@ -43,8 +43,7 @@ mdq_get <- function(url) {
   file_path = file.path(cache_dir, paste(key, fext, sep = "."))
 
   if (!file.exists(file_path)) {
-    request <- httr::GET(url)
-    writeLines(httr::content(request, as = "text", encoding = "UTF-8"), con = file_path)
+    utils::download.file(url, file_path)
   }
 
   stopifnot(file.exists(file_path))
