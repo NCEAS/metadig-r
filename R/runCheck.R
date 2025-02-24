@@ -190,11 +190,21 @@ selectNodes <- function(contextNode, selectorContext, selectorNamespaces) {
   if (length(selectorContext) == 0) return(list())
   values <- list()
   selectorName <- xml_text(xml_child(selectorContext, "name"))
-  selectorXpath <- xml_text(xml_child(selectorContext, "xpath"))
-  # Have to use xml_find_first here instead of xml_find_all, because xml_find_all
-  # returns an internal error if the node doesn't evaluate to text, for example
-  # the selector 'boolean(/eml/dataset/title)' causes an internal error.
-  selectedNodeset <- xml_find_first(contextNode, selectorXpath, selectorNamespaces)
+
+  # Handle selections for both JSON metadata and XML metadata
+  if(names(selectorNamespaces) == 'schema') {
+    # Extract using JSON methods
+    selectorJSONpath <- xml_text(xml_child(selectorContext, "jpath"))
+    selectedNodeset <- json_apply_jpath(contextNode, selectorJSONpath)
+  } else {
+    # Extract using XML methods
+    selectorXpath <- xml_text(xml_child(selectorContext, "xpath"))
+    # Have to use xml_find_first here instead of xml_find_all, because xml_find_all
+    # returns an internal error if the node doesn't evaluate to text, for example
+    # the selector 'boolean(/eml/dataset/title)' causes an internal error.
+    selectedNodeset <- xml_find_first(contextNode, selectorXpath, selectorNamespaces)
+  }
+
   # Return if selector didn't select anything
   if (length(selectedNodeset) == 0) return(values)
   # If the xpath expression evaluations to a number, logical or character, then
@@ -294,4 +304,42 @@ ns_strip <- function(x, nsPrefix) {
   }
 
   invisible(x)
+}
+
+
+#' @example
+#' json_apply_jpath(
+#'  json_context = list(
+#'    `@context` = "https://schema.org",
+#'    url = "https://doi.org/10.4211/hs.e99ee3f096964b31add85947894d812c",
+#'    name = "Virginia Forest - DTW, Water Temperature, Specific conductance - Jun 2021-Jul 2024"
+#'  ), jpath_text = "$name;!is.null")
+#'
+
+json_apply_jpath <- function(json_context, jpath_text) {
+
+  # First separate out if there are multiple commands to use. The assumption
+  # is that they are separated by `;`.
+  jpath_actions <- unlist(strsplit(jpath_text, ';'))
+
+  # For the first action, value is the full `json_context`
+  value <- json_context
+  for(act in jpath_actions) {
+
+    if(grepl('^\\$', act)) {
+      # If the action starts with `$`, it means we are simply subsetting
+      # So, add the data we are subsetting to the front of the action
+      act <- paste0("value", act)
+    } else {
+      # Otherwise, it is a function that our data is passed to
+      act <- paste0(act, "(value)")
+    }
+
+    # Now, apply the action and write over `value` so that it is ready
+    # for the next loop iteration.
+    value <- eval(parse(text=act))
+
+  }
+
+  return(value)
 }

@@ -44,10 +44,26 @@ mdq_result <- list(status=result$status, output=list(list(value=result$output)))
    <namespaceAware>true</namespaceAware>
   </selector>
   <selector>
+    <name>titlePresent</name>
+    <jpath>$name;!is.null</jpath>
+    <namespaces>
+      <namespace prefix="schema">schema://schema.org</namespace>
+   </namespaces>
+   <namespaceAware>true</namespaceAware>
+  </selector>
+  <selector>
     <name>datasetTitle</name>
     <xpath>/eml:eml/dataset/title</xpath>
     <namespaces>
       <namespace prefix="eml">eml://ecoinformatics.org/eml-2.1.1</namespace>
+   </namespaces>
+   <namespaceAware>true</namespaceAware>
+  </selector>
+  <selector>
+    <name>datasetTitle</name>
+    <jpath>$name</jpath>
+    <namespaces>
+      <namespace prefix="schema">schema://schema.org</namespace>
    </namespaces>
    <namespaceAware>true</namespaceAware>
   </selector>
