@@ -62,10 +62,10 @@ runCheck <- function(checkXML, metadataXML, sysmetaXML, checkFunction) {
   } else if(!isXML & metadata_file_ext == 'json') {
     # Handle JSON
     # Read in the metadata document that will be checked.
-    metadataDoc <- fromJSON(metadataXML)
+    metadataDoc <- paste(readLines(metadataXML), collapse=' ') # `jq` functions need JSON as string
     metadataDocNoNS <- metadataDoc # Namespaces don't matter for JSON, so just make a copy
     # Currently only supporting schema.org
-    if(!grepl('schema.org', metadataDoc$`@context`))
+    if(!grepl('schema.org', metadataDoc))
       stop('Error: currently only supporting `schema.org` JSON')
     isSchemaOrg <- TRUE
   } else {
@@ -122,6 +122,8 @@ runCheck <- function(checkXML, metadataXML, sysmetaXML, checkFunction) {
 
       # Skip this selector if parsing Schema.org and it doesn't have the 'schema' namespace
       if(isSchemaOrg & (!has_namespace | thisPrefix != 'schema')) next
+      # Like wise, skip if we are parsing XML and the current selector is schema.org
+      if(!isSchemaOrg & (has_namespace & thisPrefix == 'schema')) next
 
       # See if the check author specified that this selector should be namespace aware, i.e.
       # the selector has namespaces defined which it will use when extracting nodes from the document.
@@ -190,15 +192,21 @@ selectNodes <- function(contextNode, selectorContext, selectorNamespaces) {
   if (length(selectorContext) == 0) return(list())
   values <- list()
   selectorName <- xml_text(xml_child(selectorContext, "name"))
+  selectorXpath <- xml_text(xml_child(selectorContext, "xpath"))
 
   # Handle selections for both JSON metadata and XML metadata
   if(names(selectorNamespaces) == 'schema') {
     # Extract using JSON methods
-    selectorJSONpath <- xml_text(xml_child(selectorContext, "jpath"))
-    selectedNodeset <- json_apply_jpath(contextNode, selectorJSONpath)
+    selectedNodeset <- jq(contextNode, selectorXpath)
+    # Drop the 'jqson' class that is added (this makes sure that checks below
+    # for the xml_node class are operating only on one value)
+    class(selectedNodeset) <- class(selectedNodeset)[-which(class(selectedNodeset) == 'jqson')]
+    # If it is a true or false, return that as an actual logical value
+    selectedNodeset <- ifelse(selectedNodeset == 'true', TRUE,
+                              ifelse(selectedNodeset == 'false', FALSE,
+                                     selectedNodeset))
   } else {
     # Extract using XML methods
-    selectorXpath <- xml_text(xml_child(selectorContext, "xpath"))
     # Have to use xml_find_first here instead of xml_find_all, because xml_find_all
     # returns an internal error if the node doesn't evaluate to text, for example
     # the selector 'boolean(/eml/dataset/title)' causes an internal error.

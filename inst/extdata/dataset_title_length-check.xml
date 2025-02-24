@@ -45,7 +45,7 @@ mdq_result <- list(status=result$status, output=list(list(value=result$output)))
   </selector>
   <selector>
     <name>titlePresent</name>
-    <jpath>$name;!is.null</jpath>
+    <xpath>.name | length > 0</xpath>
     <namespaces>
       <namespace prefix="schema">schema://schema.org</namespace>
    </namespaces>
@@ -61,7 +61,7 @@ mdq_result <- list(status=result$status, output=list(list(value=result$output)))
   </selector>
   <selector>
     <name>datasetTitle</name>
-    <jpath>$name</jpath>
+    <xpath>.name</xpath>
     <namespaces>
       <namespace prefix="schema">schema://schema.org</namespace>
    </namespaces>
