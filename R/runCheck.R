@@ -80,7 +80,7 @@ runCheck <- function(checkXML, metadataFILE, sysmetaXML, checkFunction) {
   # Check that the metadata document is a supported dialect for the
   # check. If the dialect isn't present, then all dialects are
   # supported by this check.
-  if (!isCheckValid(checkDoc, metadataDoc)) {
+  if (isXML && !isCheckValid(checkDoc, metadataDoc)) {
     checkId <- xml_text(xml_find_first(checkDoc, "/mdq:check/id"))
     message(sprintf("Check %s is not valid for metadata document %s", checkId, metadataFILE))
     return()
@@ -273,6 +273,8 @@ isCheckValid <- function(checkDoc, metadataDoc) {
         dialectXpath <- xml_text(xml_child(thisDialectNode, "xpath"))
         # The xpath for dialect should have been written as a boolean, so that
         # an R logical will be returned.
+        # TODO: Update this function for JSON dialects? Currently this function
+        # just gets skipped if the metadataDoc is JSON instead of XML.
         dialectMatchNode <- xml_find_first(metadataDoc, dialectXpath)
         if (class(dialectMatchNode) != "logical") {
           message("Skipping dialect name: %s, xpath: %s", dialectName, dialectXpath)
