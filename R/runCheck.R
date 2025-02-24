@@ -122,9 +122,9 @@ runCheck <- function(checkXML, metadataFILE, sysmetaXML, checkFunction) {
       }
 
       # Skip this selector if parsing Schema.org and it doesn't have the 'schema' namespace
-      if(isSchemaOrg & (!has_namespace | thisPrefix != 'schema')) next
+      if(isSchemaOrg & (!has_namespace || thisPrefix != 'schema')) next
       # Like wise, skip if we are parsing XML and the current selector is schema.org
-      if(!isSchemaOrg & (has_namespace & thisPrefix == 'schema')) next
+      if(!isSchemaOrg & (has_namespace && thisPrefix == 'schema')) next
 
       # See if the check author specified that this selector should be namespace aware, i.e.
       # the selector has namespaces defined which it will use when extracting nodes from the document.
@@ -196,7 +196,7 @@ selectNodes <- function(contextNode, selectorContext, selectorNamespaces) {
   selectorXpath <- xml_text(xml_child(selectorContext, "xpath"))
 
   # Handle selections for both JSON metadata and XML metadata
-  if(names(selectorNamespaces) == 'schema') {
+  if(!is.null(names(selectorNamespaces)) && names(selectorNamespaces) == 'schema') {
     # Extract using JSON methods
     selectedNodeset <- jq(contextNode, selectorXpath)
     # Drop the 'jqson' class that is added (this makes sure that checks below
