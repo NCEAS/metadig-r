@@ -38,21 +38,40 @@ runCheck <- function(checkXML, metadataXML, sysmetaXML, checkFunction) {
     sysmeta <- sysmetaXML
   }
 
-  # Read in the metadata document that will be checked.
-  metadataDoc <- read_xml(metadataXML)
-  # Create a copy of the document that is not namespace aware (i.e. namespace definitions stripped).
-  # This document will be used for selectors that don't have namespaces defined, and therefore use
-  # local XML paths.
-  metadataDocNoNS <- read_xml(metadataXML)
-  # nsList contains a list of namespace prefixes and associated URIs
-  nsList <- xml_ns(metadataDoc)
-  nsPrefixes <- names(nsList)
-  if (length(nsPrefixes) > 0) {
-    for (thisNsPrefix in nsPrefixes) {
-      # Don't remove the XMLSchema-instance namespace
-      if (thisNsPrefix == "xsi") next
-      metadataDocNoNS <- ns_strip(metadataDocNoNS, thisNsPrefix)
+  # Read either JSON -or- XML
+  metadata_file_ext <- tolower(tools::file_ext(metadataXML))
+  isXML <- metadata_file_ext == 'xml'
+  isSchemaOrg <- FALSE # This will be changed to TRUE in second if chain
+  if(isXML) {
+    # Read in the metadata document that will be checked.
+    metadataDoc <- read_xml(metadataXML)
+    # Create a copy of the document that is not namespace aware (i.e. namespace definitions stripped).
+    # This document will be used for selectors that don't have namespaces defined, and therefore use
+    # local XML paths.
+    metadataDocNoNS <- read_xml(metadataXML)
+    # nsList contains a list of namespace prefixes and associated URIs
+    nsList <- xml_ns(metadataDoc)
+    nsPrefixes <- names(nsList)
+    if (length(nsPrefixes) > 0) {
+      for (thisNsPrefix in nsPrefixes) {
+        # Don't remove the XMLSchema-instance namespace
+        if (thisNsPrefix == "xsi") next
+        metadataDocNoNS <- ns_strip(metadataDocNoNS, thisNsPrefix)
+      }
     }
+  } else if(!isXML & metadata_file_ext == 'json') {
+    # Handle JSON
+    # Read in the metadata document that will be checked.
+    metadataDoc <- fromJSON(metadataXML)
+    metadataDocNoNS <- metadataDoc # Namespaces don't matter for JSON, so just make a copy
+    # Currently only supporting schema.org
+    if(!grepl('schema.org', metadataDoc$`@context`))
+      stop('Error: currently only supporting `schema.org` JSON')
+    isSchemaOrg <- TRUE
+  } else {
+    # Throw an error for an unrecognized file type
+    stop(sprintf('The file extension `%s` is not supported for %s.',
+                 metadata_file_ext, metadataXML))
   }
 
   # Read in the XML for the check
