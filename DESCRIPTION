@@ -18,6 +18,7 @@ Imports:
   tools,
   xml2
 Suggests:
+  jqr,
   knitr,
   testthat
 Roxygen: list(markdown = TRUE)
