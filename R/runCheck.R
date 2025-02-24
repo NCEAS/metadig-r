@@ -106,7 +106,8 @@ runCheck <- function(checkXML, metadataXML, sysmetaXML, checkFunction) {
       selectorNamespaces <- vector()
       class(selectorNamespaces) <- "xml_namespace"
       namespaces <- xml_find_first(thisSelector, "namespaces")
-      if (length(namespaces) > 0) {
+      has_namespace <- length(namespaces) > 0
+      if (has_namespace) {
         # Now retrieve all the namespaces
         namespaces <- xml_children(namespaces)
         for (iNamespace in seq.int(1, length(namespaces), length.out = length(namespaces))) {
@@ -118,6 +119,10 @@ runCheck <- function(checkXML, metadataXML, sysmetaXML, checkFunction) {
           selectorNamespaces[[thisPrefix]] <- thisURI
         }
       }
+
+      # Skip this selector if parsing Schema.org and it doesn't have the 'schema' namespace
+      if(isSchemaOrg & (!has_namespace | thisPrefix != 'schema')) next
+
       # See if the check author specified that this selector should be namespace aware, i.e.
       # the selector has namespaces defined which it will use when extracting nodes from the document.
       nsNode <- xml_child(thisSelector, "namespaceAware")
