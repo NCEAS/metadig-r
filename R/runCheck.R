@@ -8,7 +8,8 @@
 #' about the success or failure of the check.
 #'
 #' @param checkXML (character) The filepath for a quality check document.
-#' @param metadataXML (character) The filepath for a metadata document to check.
+#' @param metadataFile (character) The filepath for a metadata document to check;
+#' XML and JSON are currently supported.
 #' @param sysmetaXML (character) The filepath for a system metadata document corresponding to the
 #' metadata document, or a character string literal containing the system metadata.
 #' @param checkFunction (not yet implemented)
@@ -16,17 +17,18 @@
 #' @return A named list of check results.
 #'
 #' @import xml2
+#' @importFrom jqr jq
 #'
 #' @export
 #'
 #' @examples
 #' checkXML <- system.file("extdata/dataset_title_length-check.xml", package = "metadig")
-#' metadataXML <- system.file("extdata/example_EML.xml", package = "metadig")
+#' metadataFile <- system.file("extdata/example_EML.xml", package = "metadig")
 #' sysmetaXML <- system.file("extdata/example_sysmeta.xml", package = "metadig")
-#' result <- runCheck(checkXML, metadataXML, sysmetaXML)
-runCheck <- function(checkXML, metadataXML, sysmetaXML, checkFunction) {
+#' result <- runCheck(checkXML, metadataFile, sysmetaXML)
+runCheck <- function(checkXML, metadataFile, sysmetaXML, checkFunction) {
   stopifnot(is.character(checkXML), length(checkXML) == 1, nchar(checkXML) > 0)
-  stopifnot(is.character(metadataXML), length(metadataXML) == 1, nchar(metadataXML) > 0)
+  stopifnot(is.character(metadataFile), length(metadataFile) == 1, nchar(metadataFile) > 0)
 
   if (file.exists(sysmetaXML)){ # if string can be found as a file, treat it like a file
     sysmeta <- readChar(sysmetaXML, file.info(sysmetaXML)$size)
@@ -38,21 +40,42 @@ runCheck <- function(checkXML, metadataXML, sysmetaXML, checkFunction) {
     sysmeta <- sysmetaXML
   }
 
-  # Read in the metadata document that will be checked.
-  metadataDoc <- read_xml(metadataXML)
-  # Create a copy of the document that is not namespace aware (i.e. namespace definitions stripped).
-  # This document will be used for selectors that don't have namespaces defined, and therefore use
-  # local XML paths.
-  metadataDocNoNS <- read_xml(metadataXML)
-  # nsList contains a list of namespace prefixes and associated URIs
-  nsList <- xml_ns(metadataDoc)
-  nsPrefixes <- names(nsList)
-  if (length(nsPrefixes) > 0) {
-    for (thisNsPrefix in nsPrefixes) {
-      # Don't remove the XMLSchema-instance namespace
-      if (thisNsPrefix == "xsi") next
-      metadataDocNoNS <- ns_strip(metadataDocNoNS, thisNsPrefix)
+  # Read either JSON -or- XML
+  metadata_file_ext <- tolower(tools::file_ext(metadataFile))
+  isXML <- metadata_file_ext == 'xml'
+  isSchemaOrg <- FALSE # This will be changed to TRUE in second if chain
+  if(isXML) {
+    # Read in the metadata document that will be checked.
+    metadataDoc <- read_xml(metadataFile)
+    # Create a copy of the document that is not namespace aware (i.e. namespace definitions stripped).
+    # This document will be used for selectors that don't have namespaces defined, and therefore use
+    # local XML paths.
+    metadataDocNoNS <- read_xml(metadataFile)
+    # nsList contains a list of namespace prefixes and associated URIs
+    nsList <- xml_ns(metadataDoc)
+    nsPrefixes <- names(nsList)
+    if (length(nsPrefixes) > 0) {
+      for (thisNsPrefix in nsPrefixes) {
+        # Don't remove the XMLSchema-instance namespace
+        if (thisNsPrefix == "xsi") next
+        metadataDocNoNS <- ns_strip(metadataDocNoNS, thisNsPrefix)
+      }
     }
+  } else if(!isXML & metadata_file_ext == 'json') {
+    # Handle JSON
+    # Read in the metadata document that will be checked.
+    metadataDoc <- paste(readLines(metadataFile), collapse=' ') # `jq` functions need JSON as string
+    metadataDocNoNS <- metadataDoc # Namespaces don't matter for JSON, so just make a copy
+    # Identify the JSON context
+    metadataDoc_context <- extract_context_json_str(metadataDoc)
+    # Currently only supporting schema.org
+    if(!grepl('schema.org', metadataDoc_context))
+      stop('Error: currently only supporting `schema.org` JSON')
+    isSchemaOrg <- TRUE
+  } else {
+    # Throw an error for an unrecognized file type
+    stop(sprintf('The file extension `%s` is not supported for %s.',
+                 metadata_file_ext, metadataFile))
   }
 
   # Read in the XML for the check
@@ -60,9 +83,9 @@ runCheck <- function(checkXML, metadataXML, sysmetaXML, checkFunction) {
   # Check that the metadata document is a supported dialect for the
   # check. If the dialect isn't present, then all dialects are
   # supported by this check.
-  if (!isCheckValid(checkDoc, metadataDoc)) {
+  if (isXML && !isCheckValid(checkDoc, metadataDoc)) {
     checkId <- xml_text(xml_find_first(checkDoc, "/mdq:check/id"))
-    message(sprintf("Check %s is not valid for metadata document %s", checkId, metadataXML))
+    message(sprintf("Check %s is not valid for metadata document %s", checkId, metadataFile))
     return()
   }
 
@@ -87,7 +110,8 @@ runCheck <- function(checkXML, metadataXML, sysmetaXML, checkFunction) {
       selectorNamespaces <- vector()
       class(selectorNamespaces) <- "xml_namespace"
       namespaces <- xml_find_first(thisSelector, "namespaces")
-      if (length(namespaces) > 0) {
+      has_namespace <- length(namespaces) > 0
+      if (has_namespace) {
         # Now retrieve all the namespaces
         namespaces <- xml_children(namespaces)
         for (iNamespace in seq.int(1, length(namespaces), length.out = length(namespaces))) {
@@ -99,6 +123,12 @@ runCheck <- function(checkXML, metadataXML, sysmetaXML, checkFunction) {
           selectorNamespaces[[thisPrefix]] <- thisURI
         }
       }
+
+      # Skip this selector if parsing Schema.org and it doesn't have the 'schema' namespace
+      if(isSchemaOrg & (!has_namespace || thisPrefix != 'schema')) next
+      # Like wise, skip if we are parsing XML and the current selector is schema.org
+      if(!isSchemaOrg & (has_namespace && thisPrefix == 'schema')) next
+
       # See if the check author specified that this selector should be namespace aware, i.e.
       # the selector has namespaces defined which it will use when extracting nodes from the document.
       nsNode <- xml_child(thisSelector, "namespaceAware")
@@ -167,10 +197,26 @@ selectNodes <- function(contextNode, selectorContext, selectorNamespaces) {
   values <- list()
   selectorName <- xml_text(xml_child(selectorContext, "name"))
   selectorXpath <- xml_text(xml_child(selectorContext, "xpath"))
-  # Have to use xml_find_first here instead of xml_find_all, because xml_find_all
-  # returns an internal error if the node doesn't evaluate to text, for example
-  # the selector 'boolean(/eml/dataset/title)' causes an internal error.
-  selectedNodeset <- xml_find_first(contextNode, selectorXpath, selectorNamespaces)
+
+  # Handle selections for both JSON metadata and XML metadata
+  if(!is.null(names(selectorNamespaces)) && names(selectorNamespaces) == 'schema') {
+    # Extract using JSON methods
+    selectedNodeset <- jq(contextNode, selectorXpath)
+    # Drop the 'jqson' class that is added (this makes sure that checks below
+    # for the xml_node class are operating only on one value)
+    class(selectedNodeset) <- class(selectedNodeset)[-which(class(selectedNodeset) == 'jqson')]
+    # If it is a true or false, return that as an actual logical value
+    selectedNodeset <- ifelse(selectedNodeset == 'true', TRUE,
+                              ifelse(selectedNodeset == 'false', FALSE,
+                                     selectedNodeset))
+  } else {
+    # Extract using XML methods
+    # Have to use xml_find_first here instead of xml_find_all, because xml_find_all
+    # returns an internal error if the node doesn't evaluate to text, for example
+    # the selector 'boolean(/eml/dataset/title)' causes an internal error.
+    selectedNodeset <- xml_find_first(contextNode, selectorXpath, selectorNamespaces)
+  }
+
   # Return if selector didn't select anything
   if (length(selectedNodeset) == 0) return(values)
   # If the xpath expression evaluations to a number, logical or character, then
@@ -230,6 +276,8 @@ isCheckValid <- function(checkDoc, metadataDoc) {
         dialectXpath <- xml_text(xml_child(thisDialectNode, "xpath"))
         # The xpath for dialect should have been written as a boolean, so that
         # an R logical will be returned.
+        # TODO: Update this function for JSON dialects? Currently this function
+        # just gets skipped if the metadataDoc is JSON instead of XML.
         dialectMatchNode <- xml_find_first(metadataDoc, dialectXpath)
         if (class(dialectMatchNode) != "logical") {
           message("Skipping dialect name: %s, xpath: %s", dialectName, dialectXpath)
@@ -270,4 +318,17 @@ ns_strip <- function(x, nsPrefix) {
   }
 
   invisible(x)
+}
+
+# Simple helper function to extract the value of `@context` from
+# JSON when it is already loaded into the environment as one giant
+# string. Could more easily find the key-value for context by parsing
+# the JSON into a list (jsonlite::fromJSON), but that would duplicate
+# the file reading step and downstream steps need JSON as a string.
+extract_context_json_str <- function(json_str) {
+  key_str <- '@context'
+  json_elements <- unlist(strsplit(json_str, ', '))
+  strcapture(sprintf('\"%s\": \"(.*)\"', key_str),
+             json_elements[grep(key_str, json_elements)],
+             proto = data.frame(val = character()))$val
 }

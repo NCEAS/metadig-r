@@ -62,11 +62,12 @@ if (nchar(title) > 100) {
     - "Title was long enough."
 
 
-### `runCheck(checkXML, metadataXML)`
+### `runCheck(checkXML, metadataFile)`
 
 Quality checks authored for the Java quality engine can be tested in the R environment using this package.
 Checks must be written in an XML format designed for the quality engine, 
-which includes the source code of the check.
+which includes the source code of the check. The metadata file can be either
+XML or JSON (but only `schema.org` JSON).
 
 Examples of quality checks written in R are available in this package within the "inst/extdata" folder.
 The following example runs a quality check in the R environment, using an example metadata file that is

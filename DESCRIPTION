@@ -1,12 +1,13 @@
 Package: metadig
 Type: Package
 Title: Author MetaDIG checks in R
-Version: 0.2.1
+Version: 0.3.0
 Description: A set of utility methods for authoring MetaDIG checks in R.
 Authors@R: c(
   person("Bryce", "Mecum", role = "aut", email = "mecum@nceas.ucsb.edu", comment=c(ORCID = "0000-0002-0381-3766")),
   person("Peter", "Slaughter", role = "aut", email = "slaughter@nceas.ucsb.edu", comment=c(ORCID = "0000-0002-2192-403X")),
-  person("Matthew B.", "Jones", role = c("aut","cre"), email = "jones@nceas.ucsb.edu", comment=c(ORCID = "0000-0003-0077-4738"))
+  person("Matthew B.", "Jones", role = c("aut","cre"), email = "jones@nceas.ucsb.edu", comment=c(ORCID = "0000-0003-0077-4738")),
+  person("Lindsay", "Platt", role = "ctb", email = "lplatt@cuahsi.org", comment=c(ORCID = "0000-0002-5799-6297"))
   )
 License: Apache License (== 2.0)
 URL: https://github.com/NCEAS/metadig-r/
@@ -15,11 +16,12 @@ Encoding: UTF-8
 Imports:
   digest,
   httr,
+  jqr,
   tools,
   xml2
 Suggests:
   knitr,
   testthat
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 VignetteBuilder: knitr

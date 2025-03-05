@@ -6,7 +6,7 @@
 #'
 #' @param suiteXML (character) A filepath for the quality suite document.
 #' @param dirXML (character) A filepath for the directory storing quality check documents.
-#' @param metadataXML (character) A filepath for the metadata document to check.
+#' @param metadataFile (character) A filepath for the metadata document to check, either XML or JSON.
 #' @param sysmetaXML (character) A file path for the system metadata document corresponding to the metadata document
 #'
 #' @return A named list of results.
@@ -17,17 +17,17 @@
 #'
 #' @examples
 #' \dontrun{
-#' metadataXML <- system.file("extdata/example_EML.xml", package = "metadig")
+#' metadataFile <- system.file("extdata/example_EML.xml", package = "metadig")
 #' suiteXML <- system.file("extdata/example_suite.xml", package = "metadig")
 #' dirXML <- system.file("extdata", package = "metadig")
 #' sysmetaXML <- system.file("extdata/example_sysmeta.xml", package = "metadig")
 #'
-#' results <- runSuite(suiteXML, dirXML, metadataXML, sysmetaXML)
+#' results <- runSuite(suiteXML, dirXML, metadataFile, sysmetaXML)
 #' }
-runSuite <- function(suiteXML, dirXML, metadataXML, sysmetaXML) {
+runSuite <- function(suiteXML, dirXML, metadataFile, sysmetaXML) {
   stopifnot(is.character(suiteXML), length(suiteXML) == 1, nchar(suiteXML) > 0)
   stopifnot(is.character(dirXML), length(dirXML) == 1, nchar(dirXML) > 0)
-  stopifnot(is.character(metadataXML), length(metadataXML) == 1, nchar(metadataXML) > 0)
+  stopifnot(is.character(metadataFile), length(metadataFile) == 1, nchar(metadataFile) > 0)
 
   # Parse check IDs
   suite <- read_xml(suiteXML)
@@ -38,7 +38,11 @@ runSuite <- function(suiteXML, dirXML, metadataXML, sysmetaXML) {
   sysmeta <- readChar(sysmetaXML, file.info(sysmetaXML)$size)
 
   # Translate IDs to list of check XML filepaths
-  checks <- list.files(dirXML, full.names = TRUE)
+  checks <- list.files(dirXML, full.names = TRUE,
+                       # TODO: Remove this pattern argument. It is used to
+                       # ignore JSON in the test suite temporarily since
+                       # only the title length check is working.
+                       pattern = '.xml$')
   all <- lapply(checks, read_xml)
   names(all) <- checks
   all <- lapply(all, xml_find_all, "id")
@@ -47,7 +51,7 @@ runSuite <- function(suiteXML, dirXML, metadataXML, sysmetaXML) {
   suite <- names(run)
 
   # Use runCheck() and iterate over checks in suite using the same metadata file
-  results <- lapply(suite, runCheck, metadataXML, sysmetaXML = sysmetaXML)
+  results <- lapply(suite, runCheck, metadataFile, sysmetaXML = sysmetaXML)
   names(results) <- basename(suite)
   results
 }
