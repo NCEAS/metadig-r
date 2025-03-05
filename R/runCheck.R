@@ -17,6 +17,7 @@
 #' @return A named list of check results.
 #'
 #' @import xml2
+#' @importFrom jqr jq
 #'
 #' @export
 #'

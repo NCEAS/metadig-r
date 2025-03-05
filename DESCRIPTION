@@ -16,10 +16,10 @@ Encoding: UTF-8
 Imports:
   digest,
   httr,
+  jqr,
   tools,
   xml2
 Suggests:
-  jqr,
   knitr,
   testthat
 Roxygen: list(markdown = TRUE)
