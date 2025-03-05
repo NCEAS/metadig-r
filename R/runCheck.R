@@ -65,8 +65,10 @@ runCheck <- function(checkXML, metadataFile, sysmetaXML, checkFunction) {
     # Read in the metadata document that will be checked.
     metadataDoc <- paste(readLines(metadataFile), collapse=' ') # `jq` functions need JSON as string
     metadataDocNoNS <- metadataDoc # Namespaces don't matter for JSON, so just make a copy
+    # Identify the JSON context
+    metadataDoc_context <- extract_context_json_str(metadataDoc)
     # Currently only supporting schema.org
-    if(!grepl('schema.org', metadataDoc))
+    if(!grepl('schema.org', metadataDoc_context))
       stop('Error: currently only supporting `schema.org` JSON')
     isSchemaOrg <- TRUE
   } else {
@@ -353,4 +355,17 @@ json_apply_jpath <- function(json_context, jpath_text) {
   }
 
   return(value)
+}
+
+# Simple helper function to extract the value of `@context` from
+# JSON when it is already loaded into the environment as one giant
+# string. Could more easily find the key-value for context by parsing
+# the JSON into a list (jsonlite::fromJSON), but that would duplicate
+# the file reading step and downstream steps need JSON as a string.
+extract_context_json_str <- function(json_str) {
+  key_str <- '@context'
+  json_elements <- unlist(strsplit(json_str, ', '))
+  strcapture(sprintf('\"%s\": \"(.*)\"', key_str),
+             json_elements[grep(key_str, json_elements)],
+             proto = data.frame(val = character()))$val
 }
