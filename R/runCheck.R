@@ -8,7 +8,7 @@
 #' about the success or failure of the check.
 #'
 #' @param checkXML (character) The filepath for a quality check document.
-#' @param metadataFILE (character) The filepath for a metadata document to check;
+#' @param metadataFile (character) The filepath for a metadata document to check;
 #' XML and JSON are currently supported.
 #' @param sysmetaXML (character) The filepath for a system metadata document corresponding to the
 #' metadata document, or a character string literal containing the system metadata.
@@ -22,12 +22,12 @@
 #'
 #' @examples
 #' checkXML <- system.file("extdata/dataset_title_length-check.xml", package = "metadig")
-#' metadataFILE <- system.file("extdata/example_EML.xml", package = "metadig")
+#' metadataFile <- system.file("extdata/example_EML.xml", package = "metadig")
 #' sysmetaXML <- system.file("extdata/example_sysmeta.xml", package = "metadig")
-#' result <- runCheck(checkXML, metadataFILE, sysmetaXML)
-runCheck <- function(checkXML, metadataFILE, sysmetaXML, checkFunction) {
+#' result <- runCheck(checkXML, metadataFile, sysmetaXML)
+runCheck <- function(checkXML, metadataFile, sysmetaXML, checkFunction) {
   stopifnot(is.character(checkXML), length(checkXML) == 1, nchar(checkXML) > 0)
-  stopifnot(is.character(metadataFILE), length(metadataFILE) == 1, nchar(metadataFILE) > 0)
+  stopifnot(is.character(metadataFile), length(metadataFile) == 1, nchar(metadataFile) > 0)
 
   if (file.exists(sysmetaXML)){ # if string can be found as a file, treat it like a file
     sysmeta <- readChar(sysmetaXML, file.info(sysmetaXML)$size)
@@ -40,16 +40,16 @@ runCheck <- function(checkXML, metadataFILE, sysmetaXML, checkFunction) {
   }
 
   # Read either JSON -or- XML
-  metadata_file_ext <- tolower(tools::file_ext(metadataFILE))
+  metadata_file_ext <- tolower(tools::file_ext(metadataFile))
   isXML <- metadata_file_ext == 'xml'
   isSchemaOrg <- FALSE # This will be changed to TRUE in second if chain
   if(isXML) {
     # Read in the metadata document that will be checked.
-    metadataDoc <- read_xml(metadataFILE)
+    metadataDoc <- read_xml(metadataFile)
     # Create a copy of the document that is not namespace aware (i.e. namespace definitions stripped).
     # This document will be used for selectors that don't have namespaces defined, and therefore use
     # local XML paths.
-    metadataDocNoNS <- read_xml(metadataFILE)
+    metadataDocNoNS <- read_xml(metadataFile)
     # nsList contains a list of namespace prefixes and associated URIs
     nsList <- xml_ns(metadataDoc)
     nsPrefixes <- names(nsList)
@@ -63,7 +63,7 @@ runCheck <- function(checkXML, metadataFILE, sysmetaXML, checkFunction) {
   } else if(!isXML & metadata_file_ext == 'json') {
     # Handle JSON
     # Read in the metadata document that will be checked.
-    metadataDoc <- paste(readLines(metadataFILE), collapse=' ') # `jq` functions need JSON as string
+    metadataDoc <- paste(readLines(metadataFile), collapse=' ') # `jq` functions need JSON as string
     metadataDocNoNS <- metadataDoc # Namespaces don't matter for JSON, so just make a copy
     # Currently only supporting schema.org
     if(!grepl('schema.org', metadataDoc))
@@ -72,7 +72,7 @@ runCheck <- function(checkXML, metadataFILE, sysmetaXML, checkFunction) {
   } else {
     # Throw an error for an unrecognized file type
     stop(sprintf('The file extension `%s` is not supported for %s.',
-                 metadata_file_ext, metadataFILE))
+                 metadata_file_ext, metadataFile))
   }
 
   # Read in the XML for the check
@@ -82,7 +82,7 @@ runCheck <- function(checkXML, metadataFILE, sysmetaXML, checkFunction) {
   # supported by this check.
   if (isXML && !isCheckValid(checkDoc, metadataDoc)) {
     checkId <- xml_text(xml_find_first(checkDoc, "/mdq:check/id"))
-    message(sprintf("Check %s is not valid for metadata document %s", checkId, metadataFILE))
+    message(sprintf("Check %s is not valid for metadata document %s", checkId, metadataFile))
     return()
   }
 

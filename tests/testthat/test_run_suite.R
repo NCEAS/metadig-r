@@ -1,7 +1,7 @@
 context("check quality suite tests")
 
 test_that("runSuite() works", {
-  metadataFILE <- system.file("extdata/example_EML.xml", package = "metadig")
+  metadataFile <- system.file("extdata/example_EML.xml", package = "metadig")
   suiteXML <- system.file("extdata/example_suite.xml", package = "metadig")
   dirXML <- system.file("extdata", package = "metadig")
   sysmetaXML <- system.file("extdata/example_sysmeta.xml", package = "metadig")
@@ -9,11 +9,11 @@ test_that("runSuite() works", {
   expect_error(runSuite(7, 7, 7, 7))
   expect_error(runSuite(suiteXML, 7, 7, 7))
   expect_error(runSuite(suiteXML, dirXML, 7, 7))
-  expect_error(runSuite(c(suiteXML, dirXML), dirXML, metadataFILE))
-  expect_error(runSuite(suiteXML, c(suiteXML, dirXML), metadataFILE))
+  expect_error(runSuite(c(suiteXML, dirXML), dirXML, metadataFile))
+  expect_error(runSuite(suiteXML, c(suiteXML, dirXML), metadataFile))
   expect_error(runSuite(suiteXML, dirXML, c(suiteXML, dirXML)))
 
-  results <- runSuite(suiteXML, dirXML, metadataFILE, sysmetaXML)
+  results <- runSuite(suiteXML, dirXML, metadataFile, sysmetaXML)
 
   expect_match(results[[1]]$value$status, "FAILURE")
   expect_match(results[[2]]$value$status, "SUCCESS")

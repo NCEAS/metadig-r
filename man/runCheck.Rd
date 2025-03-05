@@ -4,12 +4,12 @@
 \alias{runCheck}
 \title{Execute a quality check for a metadata document}
 \usage{
-runCheck(checkXML, metadataFILE, sysmetaXML, checkFunction)
+runCheck(checkXML, metadataFile, sysmetaXML, checkFunction)
 }
 \arguments{
 \item{checkXML}{(character) The filepath for a quality check document.}
 
-\item{metadataFILE}{(character) The filepath for a metadata document to check;
+\item{metadataFile}{(character) The filepath for a metadata document to check;
 XML and JSON are currently supported.}
 
 \item{sysmetaXML}{(character) The filepath for a system metadata document corresponding to the
@@ -30,7 +30,7 @@ about the success or failure of the check.
 }
 \examples{
 checkXML <- system.file("extdata/dataset_title_length-check.xml", package = "metadig")
-metadataFILE <- system.file("extdata/example_EML.xml", package = "metadig")
+metadataFile <- system.file("extdata/example_EML.xml", package = "metadig")
 sysmetaXML <- system.file("extdata/example_sysmeta.xml", package = "metadig")
-result <- runCheck(checkXML, metadataFILE, sysmetaXML)
+result <- runCheck(checkXML, metadataFile, sysmetaXML)
 }

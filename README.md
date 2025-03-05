@@ -62,7 +62,7 @@ if (nchar(title) > 100) {
     - "Title was long enough."
 
 
-### `runCheck(checkXML, metadataFILE)`
+### `runCheck(checkXML, metadataFile)`
 
 Quality checks authored for the Java quality engine can be tested in the R environment using this package.
 Checks must be written in an XML format designed for the quality engine, 
