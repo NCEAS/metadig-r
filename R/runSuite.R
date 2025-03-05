@@ -38,7 +38,11 @@ runSuite <- function(suiteXML, dirXML, metadataFile, sysmetaXML) {
   sysmeta <- readChar(sysmetaXML, file.info(sysmetaXML)$size)
 
   # Translate IDs to list of check XML filepaths
-  checks <- list.files(dirXML, full.names = TRUE)
+  checks <- list.files(dirXML, full.names = TRUE,
+                       # TODO: Remove this pattern argument. It is used to
+                       # ignore JSON in the test suite temporarily since
+                       # only the title length check is working.
+                       pattern = '.xml$')
   all <- lapply(checks, read_xml)
   names(all) <- checks
   all <- lapply(all, xml_find_all, "id")
