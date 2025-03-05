@@ -49,3 +49,18 @@ test_that("runCheck() handles sysmetaXML argument correctly", {
   expect_warning(runCheck(checkFile, metadataFile, sysmetaXML))
 
 })
+
+test_that("runCheck() works for schema.org JSON", {
+
+  checkFile <- system.file("extdata/dataset_title_length-check.xml", package = "metadig")
+  metadataFile <- system.file("extdata/example_schemaorg.json", package = "metadig")
+  sysmetaXML <- system.file("extdata/example_sysmeta.xml", package = "metadig")
+
+  results <- runCheck(checkFile, metadataFile, sysmetaXML)
+  result <- results[[1]]
+
+  # The title for the test schema.org JSON file is sufficient, so this check should pass.
+  expect_match(result$status, "SUCCESS")
+  expect_match(result$output[[1]]$value, ".*the dataset's title is sufficient.*")
+
+})
